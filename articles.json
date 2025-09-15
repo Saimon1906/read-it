@@ -30,7 +30,7 @@
     "author": "Sadia",
     "date": "2025-07-12",
     "readMin": 8,
-    "featured": true,
+    "featured": false ,
     "excerpt": "Turn a JSON list into dynamic, searchable cards with zero backend.",
     "image": "https://picsum.photos/seed/art-gamehub/640/360",
     "url": "#build-static-gamehub"
