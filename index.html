@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArticleHub • Read & Discover</title>
+  <meta name="description" content="A clean article landing page with a working client‑side search, filters, and bookmarks." />
+  <style>
+    :root{
+      --bg:#0b0f14;--panel:#0f1620;--muted:#8aa0b3;--text:#e7f1fb;--brand:#5b9dff;--accent:#83ffa9;--danger:#ff6b6b;
+      --card:#121a25;--border:#1b2634
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:radial-gradient(1200px 600px at 80% -10%, #18314f22, transparent),var(--bg);color:var(--text);font:400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin-inline:auto;padding:24px}
+    header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,var(--bg),#0b0f14e6 70%,#0b0f1400);backdrop-filter:saturate(140%) blur(8px)}
+    .nav{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+    .brand .logo{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--brand),#6ef3ff 70%);box-shadow:0 6px 18px #5b9dff55}
+    .kbd{border:1px solid var(--border);border-bottom-width:2px;border-right-width:2px;border-radius:6px;padding:2px 6px;background:var(--panel);color:var(--muted);font:600 12px/1 monospace}
+    .search-wrap{position:relative;flex:1;max-width:560px;margin:8px 24px}
+    .search{width:100%;padding:12px 40px 12px 40px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text);outline:none;transition:.2s;border-bottom-width:2px;border-right-width:2px}
+    .search::placeholder{color:#7f93a6}
+    .search:focus{border-color:#2a3b52;box-shadow:0 0 0 3px #5b9dff33}
+    .search-icon{position:absolute;left:12px;top:50%;translate:0 -50%;opacity:.8}
+    .slash-hint{position:absolute;right:10px;top:50%;translate:0 -50%}
+    .results-meta{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:14px;padding:8px 2px}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{position:relative;grid-column:span 12;display:flex;flex-direction:column;min-height:240px;border-radius:18px;
+      background:linear-gradient(180deg,var(--card),#0e1520) padding-box,
+                 linear-gradient(135deg,#2a3b52,#5b9dff33,#83ffa933) border-box;
+      border:1px solid transparent;box-shadow:0 8px 24px rgba(0,0,0,.35);
+      transform:translateY(0) scale(1);transition:transform .25s ease, box-shadow .25s ease}
+    @media(min-width:640px){.card{grid-column:span 6}}
+    @media(min-width:960px){.card{grid-column:span 4}}
+    .card:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 16px 32px rgba(0,0,0,.45)}
+
+    .thumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#203045,#0f1620);display:block;border-bottom:1px solid var(--border);overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+    .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,#0e152088 65%,#0e1520cc 100%);pointer-events:none}
+    .card:hover .thumb img{transform:scale(1.05)}
+
+    .content{padding:14px 16px 18px;display:flex;flex-direction:column;gap:10px}
+    .title{font-weight:800;font-size:18px;letter-spacing:.2px;line-height:1.2}
+    .card:hover .title{background:linear-gradient(90deg,#e7f1fb,#a9c6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .desc{color:#aac0d2;font-size:14px}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;color:#a0b7cd;font-size:13px}
+    .meta .dot{opacity:.6}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+    .tag{font-size:12px;color:#a0b7cd;background:#172233;border:1px solid #203247;padding:4px 8px;border-radius:999px;cursor:pointer}
+    .muted{color:var(--muted)}
+    .spacer{height:18px}
+    mark{background:#ffee0080;padding:0 .15em;border-radius:4px}
+
+    .empty{border:1px dashed #2a3b52;border-radius:14px;padding:24px;text-align:center;color:var(--muted);background:#0b111b}
+    footer{color:#7f93a6;text-align:center;padding:40px 0}
+
+    /* --- Extra UI: chips, toolbar, icons, bookmarks, theme --- */
+    .toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:8px 2px 16px}
+    .chips{display:flex;gap:8px;overflow:auto;padding-bottom:2px}
+    .chip{border:1px solid var(--border);background:#111a26;color:#cfe1f5;padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer;user-select:none}
+    .chip.active{background:linear-gradient(135deg,#1a2a40,#122235);border-color:#2a3b52}
+    .right-controls{display:flex;gap:8px;align-items:center}
+    .icon-btn, select, .switch{border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:10px;padding:8px 10px;font-size:14px}
+    select{appearance:none;padding-right:26px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 16px) calc(1em - 2px),calc(100% - 12px) calc(1em - 2px);background-size:4px 4px,4px 4px;background-repeat:no-repeat}
+    .icon-btn{cursor:pointer}
+    .clear-btn{position:absolute;right:10px;top:50%;translate:0 -50%;border-radius:8px;padding:6px 8px;display:none}
+    .search:not(:placeholder-shown) ~ .clear-btn{display:inline-flex}
+    .fav-btn{position:absolute;top:10px;right:10px;border:1px solid var(--border);background:#0e1520aa;backdrop-filter:blur(2px);color:#9db7ff;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;cursor:pointer;transition:.2s}
+    .fav-btn.active{color:#ff79a6;border-color:#ff79a6aa;background:#301728aa}
+
+    :root[data-theme="light"]{--bg:#f7f9fc;--panel:#ffffff;--muted:#5e6b78;--text:#0d1b2a;--brand:#3b82f6;--accent:#10b981;--danger:#ef4444;--card:#f8fbff;--border:#e5eef7}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand"><div class="logo" aria-hidden="true"></div> <span>ArticleHub</span></div>
+      <div class="search-wrap" role="search">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="search" class="search" type="search" inputmode="search" placeholder="Search articles by title, author, tag, or summary…" aria-label="Search articles" autocomplete="off" />
+        <span class="slash-hint kbd" title="Press / to focus">/</span>
+        <button id="clearSearch" class="clear-btn icon-btn" title="Clear search" aria-label="Clear search">✕</button>
+      </div>
+      <button id="themeToggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">☾</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="results-meta" aria-live="polite" aria-atomic="true">
+      <span id="resultCount">Showing 0 articles</span>
+      <span class="muted">•</span>
+      <span class="muted">Tip: Press <span class="kbd">/</span> to jump to search</span>
+    </div>
+
+    <div class="toolbar" aria-label="Filters and tools">
+      <div class="chips" id="categoryChips"></div>
+      <div class="right-controls">
+        <label class="switch" title="Show only bookmarks"><input type="checkbox" id="favToggle"> Bookmarks</label>
+        <select id="sortSelect" aria-label="Sort results">
+          <option value="featured">Featured</option>
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <option value="title">Title A–Z</option>
+          <option value="readtime">Read time ↑</option>
+        </select>
+        <button id="copyLink" class="icon-btn" title="Copy current link">Copy link</button>
+      </div>
+    </div>
+
+    <section id="grid" class="grid" aria-label="Article results"></section>
+
+    <div id="emptyState" class="empty" hidden>
+      <p><strong>No articles found.</strong> Try a broader term or different tag.</p>
+      <p class="muted">Example searches: <span class="kbd">javascript</span> <span class="kbd">arduino</span> <span class="kbd">business</span></p>
+    </div>
+
+    <div class="spacer"></div>
+  </main>
+
+  <footer>
+    <div class="container muted">© <span id="year"></span> ArticleHub — Demo landing page with client‑side search.</div>
+  </footer>
+
+  <script>
+    let ARTICLES = []; // will be loaded via JSON
+
+    // ===== Enhanced features: category chips, bookmarks, sort, theme, copy link =====
+    const qs = (sel, el=document)=>el.querySelector(sel);
+    const qa = (sel, el=document)=>[...el.querySelectorAll(sel)];
+
+    const els = {
+      grid: qs('#grid'),
+      categoryChips: qs('#categoryChips'),
+      sortSelect: qs('#sortSelect'),
+      favToggle: qs('#favToggle'),
+      copyLink: qs('#copyLink'),
+      themeToggle: qs('#themeToggle'),
+      clearSearch: qs('#clearSearch'),
+      slashHint: document.querySelector('.slash-hint'),
+      input: qs('#search'),
+    };
+
+    function uniq(arr){ return [...new Set(arr)]; }
+    function categoriesFrom(data){ return uniq(data.map(a=>a.category)).sort((a,b)=>a.localeCompare(b)); }
+
+    let selectedCategory = new URLSearchParams(location.search).get('category') || 'all';
+    let sortMode = new URLSearchParams(location.search).get('sort') || 'featured';
+    let favOnly = (new URLSearchParams(location.search).get('fav') || '0') === '1';
+    const bookmarks = new Set(JSON.parse(localStorage.getItem('bookmarks') || '[]'));
+
+    function renderCategoryChips(){
+      const cats = ['all', ...categoriesFrom(ARTICLES)];
+      els.categoryChips.innerHTML = cats.map(c=>`<button class="chip${c===selectedCategory?' active':''}" data-category="${c}">${c[0].toUpperCase()+c.slice(1)}</button>`).join('');
+    }
+
+    function applySort(list){
+      const arr = [...list];
+      if(sortMode==='title') arr.sort((a,b)=>a.title.localeCompare(b.title));
+      else if(sortMode==='newest') arr.sort((a,b)=> new Date(b.date) - new Date(a.date));
+      else if(sortMode==='oldest') arr.sort((a,b)=> new Date(a.date) - new Date(b.date));
+      else if(sortMode==='readtime') arr.sort((a,b)=> a.readMin - b.readMin);
+      else if(sortMode==='featured') arr.sort((a,b)=> (Number(b.featured||0) - Number(a.featured||0)) || (new Date(b.date) - new Date(a.date)) );
+      return arr;
+    }
+
+    // Theme
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+    const escapeHtml = (s='') => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function highlight(text, query){
+      if(!query) return escapeHtml(text);
+      const pattern = new RegExp("(" + query.trim().replace(/[.*+?^${}()|[\\]\\\\]/g,'\\\\$&').split(/\\s+/).filter(Boolean).join('|') + ")","ig");
+      return escapeHtml(text).replace(pattern, '<mark>$1</mark>');
+    }
+
+    const fmtDate = (iso)=>{ try{ const d=new Date(iso); return d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'2-digit'});}catch{ return iso } }
+
+    function renderList(items, q){
+      const grid = els.grid; grid.innerHTML = '';
+      if(items.length === 0){ qs('#emptyState').hidden = false; }
+      else{
+        qs('#emptyState').hidden = true;
+        const frag = document.createDocumentFragment();
+        items.forEach(a => {
+          const card = document.createElement('a'); card.className = 'card'; card.href = a.url; card.setAttribute('aria-label', a.title);
+          card.innerHTML = `
+            <div class="thumb">
+              <picture>
+                <source srcset="${a.imageAvif || a.image}" type="image/avif">
+                <source srcset="${a.imageWebp || a.image}" type="image/webp">
+                <img src="${a.image}" alt="${a.title} cover" loading="lazy" width="640" height="360">
+              </picture>
+            </div>
+            <button class="fav-btn ${bookmarks.has(a.id)?'active':''}" data-id="${a.id}" aria-label="Toggle bookmark" title="Bookmark">&#9733;</button>
+            <div class="content">
+              <div class="title">${highlight(a.title, q)}</div>
+              <div class="meta">
+                <span class="author tag" data-click="author">${escapeHtml(a.author)}</span>
+                <span class="dot">•</span>
+                <span>${fmtDate(a.date)}</span>
+                <span class="dot">•</span>
+                <span>${a.readMin} min read</span>
+                <span class="dot">•</span>
+                <span class="tag" data-click="category">${escapeHtml(a.category)}</span>
+              </div>
+              <div class="desc">${highlight(a.excerpt, q)}</div>
+              <div class="tags">${(a.tags||[]).map(t=>`<span class="tag" data-click="tag">${highlight(t,q)}</span>`).join('')}</div>
+            </div>
+          `;
+          frag.appendChild(card);
+        });
+        grid.appendChild(frag);
+      }
+      qs('#resultCount').textContent = `Showing ${items.length} ${items.length===1? 'article':'articles'}`;
+    }
+
+    function normalize(s){ return s.toLowerCase(); }
+    function matches(article, q){
+      if(!q) return true; const n = normalize(q);
+      const hay = [article.title, article.category, article.excerpt, article.author, ...(article.tags||[])].join(' \\n ').toLowerCase();
+      return n.split(/\\s+/).every(part => hay.includes(part));
+    }
+
+    let query = new URLSearchParams(location.search).get('q') || '';
+    function runSearch(){
+      query = els.input.value.trim();
+      let filtered = ARTICLES.filter(a => matches(a, query));
+      if(selectedCategory !== 'all') filtered = filtered.filter(a => a.category === selectedCategory);
+      if(favOnly) filtered = filtered.filter(a => bookmarks.has(a.id));
+      filtered = applySort(filtered);
+      renderList(filtered, query);
+      // Update URL state
+      const sp = new URLSearchParams(location.search);
+      if(query) sp.set('q', query); else sp.delete('q');
+      if(selectedCategory && selectedCategory!=='all') sp.set('category', selectedCategory); else sp.delete('category');
+      if(sortMode && sortMode!=='featured') sp.set('sort', sortMode); else sp.delete('sort');
+      if(favOnly) sp.set('fav', '1'); else sp.delete('fav');
+      const newUrl = `${location.pathname}?${sp.toString()}`.replace(/\\?$/,'');
+      history.replaceState(null,'',newUrl);
+      if(els.slashHint) els.slashHint.style.display = query ? 'none':'inline-flex';
+    }
+
+    // Events / UI wiring
+    // Debounce input
+    let t; els.input.addEventListener('input', () => { clearTimeout(t); t = setTimeout(runSearch, 150); });
+
+    // Keyboard shortcut to focus search
+    window.addEventListener('keydown', (e)=>{ if(e.key === '/' && document.activeElement !== els.input){ e.preventDefault(); els.input.focus(); els.input.select(); } });
+
+    // Toolbar: category chips delegation
+    document.addEventListener('click', (e)=>{
+      const chipBtn = e.target.closest('.chip'); if(chipBtn && chipBtn.dataset.category){
+        selectedCategory = chipBtn.dataset.category; renderCategoryChips(); runSearch();
+      }
+    });
+
+    // Sort
+    els.sortSelect.addEventListener('change', (e)=>{ sortMode = e.target.value; runSearch(); });
+
+    // Bookmarks toggle
+    els.favToggle.checked = favOnly;
+    els.favToggle.addEventListener('change', (e)=>{ favOnly = e.target.checked; runSearch(); });
+
+    // Copy link
+    els.copyLink.addEventListener('click', ()=>{ navigator.clipboard?.writeText(location.href).then(()=>{ const b=els.copyLink; const prev=b.textContent; b.textContent='Copied!'; setTimeout(()=>b.textContent=prev,1200); }); });
+
+    // Clear search
+    els.clearSearch.addEventListener('click', ()=>{ els.input.value=''; runSearch(); els.input.focus(); });
+
+    // Theme toggle
+    const cur = document.documentElement.getAttribute('data-theme')||'dark';
+    els.themeToggle.textContent = cur==='light' ? '☀' : '☾';
+    els.themeToggle.addEventListener('click', ()=>{
+      const now = document.documentElement.getAttribute('data-theme')||'dark';
+      const next = now==='light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      els.themeToggle.textContent = next==='light' ? '☀' : '☾';
+    });
+
+    // Grid delegation: bookmarks + quick filters (tag/category/author chips)
+    els.grid.addEventListener('click', (e)=>{
+      const fav = e.target.closest('.fav-btn');
+      if(fav){ e.preventDefault(); e.stopPropagation(); const id = Number(fav.dataset.id);
+        if(bookmarks.has(id)) bookmarks.delete(id); else bookmarks.add(id);
+        localStorage.setItem('bookmarks', JSON.stringify([...bookmarks]));
+        fav.classList.toggle('active'); if(favOnly) runSearch(); return; }
+      const chip = e.target.closest('.tag');
+      if(chip){ e.preventDefault(); e.stopPropagation();
+        const kind = chip.getAttribute('data-click');
+        if(kind==='tag'){ els.input.value = chip.textContent.trim(); }
+        else if(kind==='category'){ selectedCategory = chip.textContent.trim(); renderCategoryChips(); }
+        else if(kind==='author'){ els.input.value = chip.textContent.trim(); }
+        runSearch();
+      }
+    });
+
+    function init(){
+      renderCategoryChips();
+      els.input.value = new URLSearchParams(location.search).get('q') || '';
+      document.querySelector('#year').textContent = new Date().getFullYear();
+      renderList(ARTICLES, els.input.value.trim());
+      if(els.input.value || selectedCategory!=='all' || favOnly || sortMode!=='featured') runSearch();
+      const saved = localStorage.getItem('theme'); if(saved){ document.documentElement.setAttribute('data-theme', saved); }
+      els.input.focus(); els.input.select();
+    }
+
+    // Load data and boot
+    fetch('articles.json')
+      .then(r => r.json())
+      .then(data => { ARTICLES = data; init(); })
+      .catch(err => {
+        console.error('Failed to load articles.json', err);
+        // Fallback minimal example
+        ARTICLES = [{ id: 1, slug: 'hello', title: 'Hello Article', category: 'General', tags:['hello'], author:'Admin', date:'2025-01-01', readMin:1, featured:true, excerpt:'Sample data fallback.', image:'https://picsum.photos/seed/fallback/640/360', url:'#' }];
+        init();
+      });
+  </script>
+</body>
+</html>
