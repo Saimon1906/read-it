@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[Article Title] • ArticleHub</title>
+  <meta name="description" content="[Brief description of the article]" />
+  <style>
+    :root{
+      --bg:#0b0f14;--panel:#0f1620;--muted:#8aa0b3;--text:#e7f1fb;--brand:#5b9dff;--accent:#83ffa9;--danger:#ff6b6b;
+      --card:#121a25;--border:#1b2634
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:radial-gradient(1200px 600px at 80% -10%, #18314f22, transparent),var(--bg);color:var(--text);font:400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin-inline:auto;padding:24px}
+    header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,var(--bg),#0b0f14e6 70%,#0b0f1400);backdrop-filter:saturate(140%) blur(8px)}
+    .nav{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+    .brand .logo{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--brand),#6ef3ff 70%);box-shadow:0 6px 18px #5b9dff55}
+    .back-btn{background:var(--panel);border:1px solid var(--border);color:var(--text);padding:8px 16px;border-radius:8px;cursor:pointer;transition:.2s}
+    .back-btn:hover{background:#1a2332}
+    .article-header{padding:40px 0;text-align:center}
+    .article-title{font-weight:800;font-size:2.5em;letter-spacing:.5px;line-height:1.2;margin:0 0 20px}
+    .article-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;color:var(--muted);font-size:14px}
+    .article-meta .dot{opacity:.6}
+    .article-content{max-width:800px;margin:0 auto;padding:0 20px;line-height:1.7}
+    .article-content h2{font-size:1.8em;margin:2em 0 1em;font-weight:700}
+    .article-content h3{font-size:1.4em;margin:1.5em 0 .8em;font-weight:600}
+    .article-content p{margin:1em 0}
+    .article-content ul,.article-content ol{margin:1em 0;padding-left:2em}
+    .article-content li{margin:.5em 0}
+    .article-content code{background:var(--panel);padding:2px 6px;border-radius:4px;font:500 14px monospace;border:1px solid var(--border)}
+    .article-content pre{overflow:auto;background:var(--panel);padding:16px;border-radius:8px;border:1px solid var(--border);margin:1em 0}
+    .article-content blockquote{margin:1.5em 0;padding:1em 1.5em;background:#1a2332;border-left:4px solid var(--brand);color:var(--muted);font-style:italic}
+    .thumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#203045,#0f1620);display:block;border-radius:12px;overflow:hidden;margin:20px auto}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    footer{color:#7f93a6;text-align:center;padding:40px 0}
+    .icon-btn{border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer}
+    :root[data-theme="light"]{--bg:#f7f9fc;--panel:#ffffff;--muted:#5e6b78;--text:#0d1b2a;--brand:#3b82f6;--accent:#10b981;--danger:#ef4444;--card:#f8fbff;--border:#e5eef7}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <a href="../index.html" class="back-btn">← Back to Articles</a>
+      <div class="brand"><div class="logo" aria-hidden="true"></div> <span>READ IT</span></div>
+      <button id="themeToggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">☾</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="article-header">
+      <h1 class="article-title">[Article Title Here]</h1>
+      <div class="article-meta">
+        <span>By [Author Name]</span>
+        <span class="dot">•</span>
+        <span>[Date, e.g., Sep 1, 2025]</span>
+        <span class="dot">•</span>
+        <span>[Read Time] min read</span>
+        <span class="dot">•</span>
+        <span>[Category]</span>
+      </div>
+    </div>
+
+    <div class="thumb">
+      <img src="[Image URL, e.g., https://picsum.photos/seed/[slug]/640/360]" alt="[Image alt text]">
+    </div>
+
+    <article class="article-content">
+      <!-- Add your article content here: paragraphs, headings, lists, code blocks, quotes, etc. -->
+      <!-- Example structure:
+      <p>Your first paragraph...</p>
+      <h2>Section Heading</h2>
+      <ul>
+        <li>Item 1</li>
+      </ul>
+      <pre><code>Your code here</code></pre>
+      -->
+    </article>
+  </main>
+
+  <footer>
+    <div class="container muted">© <span id="year"></span> HI</div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+    const themeToggle = document.getElementById('themeToggle');
+    const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+    themeToggle.textContent = cur === 'light' ? '☀' : '☾';
+    themeToggle.addEventListener('click', () => {
+      const now = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = now === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeToggle.textContent = next === 'light' ? '☀' : '☾';
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
