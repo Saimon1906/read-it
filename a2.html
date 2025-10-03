@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightcore Songs - An Internet Classic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Body styles with gradient background and animation */
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 16px;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header styles with glow effect */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ff69b4;
+            text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4; }
+            to { text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff69b4; }
+        }
+
+        /* Paragraph styles with hover effects */
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 5px solid #ff69b4;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        p:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Image styles with rotation and filter */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease, filter 0.5s ease;
+            filter: brightness(1.1) contrast(1.2);
+        }
+
+        img:hover {
+            transform: rotate(5deg) scale(1.05);
+            filter: brightness(1.3) contrast(1.3);
+        }
+
+        /* Fun fact section with special animation */
+        .fun-fact {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bold;
+            color: #ffd700;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(45deg, #ff4500, #ff8c00);
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 15px 30px rgba(255, 165, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Iconic song highlight */
+        .iconic-song {
+            font-style: italic;
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+
+        /* Additional unused classes to make code longer */
+        .unused-class1 {
+            color: red;
+            font-size: 12px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid blue;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px gray;
+            transition: color 0.2s;
+        }
+
+        .unused-class1:hover {
+            color: blue;
+            transform: scale(1.1);
+        }
+
+        .unused-class2 {
+            background: yellow;
+            font-weight: bold;
+            text-decoration: underline;
+            line-height: 2;
+            letter-spacing: 1px;
+            word-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .unused-class3 {
+            opacity: 0.8;
+            filter: grayscale(50%);
+            animation: spin 5s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .unused-class4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .unused-class5 {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .unused-class5::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .unused-class5:hover::before {
+            left: 100%;
+        }
+
+        .unused-class6 {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            color: #808080;
+            margin-top: 10px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #ccc;
+        }
+
+        .unused-class7 {
+            box-sizing: content-box;
+            width: 50%;
+            height: 200px;
+            background-image: url('some-image.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .unused-class8 {
+            text-align: justify;
+            hyphens: auto;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+        }
+
+        .unused-class9 {
+            list-style-type: none;
+            counter-reset: item;
+        }
+
+        .unused-class9 li::before {
+            content: counter(item) '. ';
+            counter-increment: item;
+            color: #ff0000;
+        }
+
+        .unused-class10 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            place-items: center;
+        }
+
+        /* More unused styles for length */
+        .extra-style1 {
+            border-top: 3px solid #ff69b4;
+            border-bottom: 3px solid #ff69b4;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .extra-style2 {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        .extra-style3 {
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        .extra-style4 {
+            filter: drop-shadow(5px 5px 10px #000);
+        }
+
+        .extra-style5 {
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .extra-style6 {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .extra-style7 {
+            mix-blend-mode: multiply;
+        }
+
+        .extra-style8 {
+            pointer-events: none;
+        }
+
+        .extra-style9 {
+            user-select: none;
+        }
+
+        .extra-style10 {
+            resize: both;
+            overflow: auto;
+        }
+
+        /* Vendor prefixes for transitions */
+        .transition-all {
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        /* Vendor prefixes for animations */
+        @-webkit-keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @-moz-keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @-o-keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* More keyframes with prefixes */
+        @-webkit-keyframes pulse {
+            0% { -webkit-transform: scale(1); }
+            50% { -webkit-transform: scale(1.05); }
+            100% { -webkit-transform: scale(1); }
+        }
+
+        @-moz-keyframes pulse {
+            0% { -moz-transform: scale(1); }
+            50% { -moz-transform: scale(1.05); }
+            100% { -moz-transform: scale(1); }
+        }
+
+        @-o-keyframes pulse {
+            0% { -o-transform: scale(1); }
+            50% { -o-transform: scale(1.05); }
+            100% { -o-transform: scale(1); }
+        }
+
+        /* Even more styles */
+        .shadow-large {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .shadow-medium {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .shadow-small {
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        .text-glow-pink {
+            text-shadow: 0 0 15px #ff69b4;
+        }
+
+        .text-glow-blue {
+            text-shadow: 0 0 15px #00bfff;
+        }
+
+        .text-glow-green {
+            text-shadow: 0 0 15px #00ff00;
+        }
+
+        .bg-gradient-purple {
+            background: linear-gradient(45deg, #8a2be2, #da70d6);
+        }
+
+        .bg-gradient-blue {
+            background: linear-gradient(45deg, #00bfff, #1e90ff);
+        }
+
+        .bg-gradient-red {
+            background: linear-gradient(45deg, #ff4500, #ff0000);
+        }
+
+        /* Image specific classes */
+        .image1 {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .image2 {
+            animation: rotateSlow 10s linear infinite;
+        }
+
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .image3 {
+            filter: sepia(50%);
+            transition: filter 0.5s;
+        }
+
+        .image3:hover {
+            filter: sepia(0%);
+        }
+
+        .image4 {
+            border: 5px solid #ff69b4;
+            border-radius: 50%;
+        }
+
+        .image5 {
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .image5:hover {
+            opacity: 1;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #ccc;
+            padding: 20px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nightcore Songs</h1>
+        
+        <img src="https://i.ytimg.com/vi/cvaIgq5j2Q8/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGGUgWShMMA8=&rs=AOn4CLC4hsaIMIUY7dSQIJB8W4hY6b_8CA" alt="Nightcore Image 1" class="image1">
+        
+        <p>Nightcore songs nightcore songs are nothing but a sub-jounrae and at the same time those are one of the internet classic.</p>
+        
+        <p>the nightcore songs came out in early 2000 which was the time when internet was becoming a household name and that's how nightcore became one of the internet classic its still popular now a days among the teens.</p>
+        
+        <img src="https://i.pinimg.com/736x/28/83/11/2883118180ccdd89a22e7e51267dd0c2.jpg" alt="Nightcore Image 2" class="image2">
+        
+        <p>basically in nightcore songs the main difference is there are no original songs but a partial remake or edited song.</p>
+        
+        <p>in nightcore lyrics and the song is speed up a little and the voices are high pitch.</p>
+        
+        <p>furthermore, due to being high pitch you may find the voice similar to anime girl voices.</p>
+        
+        <img src="https://wallpapers.com/images/featured/nightcore-ncgz0rx7nh9vo0o3.jpg" alt="Nightcore Image 3" class="image3">
+        
+        <p>thats why 90 percent of the nightcore songs thumbnails are made of anime pics.</p>
+        
+        <p class="fun-fact">fun fact : it is called nightcore coz, its meant to be listened during night time and its supposed to give you the jolt of energy when you listen to it.</p>
+        
+        <p>one of the most iconic nighcore song is <span class="iconic-song">angel with a shotgun</span>.</p>
+        
+        <img src="https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3401273171674590266" alt="Nightcore Image 4" class="image4">
+        
+        <p>sometimes i find it quite funny or lets say amusing that the nightcore versions of those songs wreaks up higher view count then the original songs.</p>
+        
+        <p>usually nightcore songs are a remake of a old popular song.</p>
+        
+        <p>so its kinda natural that newer gen wont listen to those old songs and rater listen to the modern nightcore version.</p>
+        
+        <img src="https://preview.redd.it/i-found-the-artist-whose-work-was-used-in-a-bunch-of-v0-9yv3v27x5kme1.jpeg?auto=webp&s=ba5610c2844461ecabff03a422746b7f1f397a62" alt="Nightcore Image 5" class="image5">
+        
+        <p>thats why maybe the view count may be bigger than the original when comes to nightcore.</p>
+        
+        <p>but its just my personal speculation.</p>
+        
+        <p>anyways it doesn't matter.</p>
+        
+        <p>you can think anything you desire and i welcome it.</p>
+        
+        <p>though 90 percent of my playlist is full of nightcore songs.</p>
+    </div>
+    
+    <footer>
+        Generated with love for Nightcore enthusiasts!
+    </footer>
+</body>
+</html>
