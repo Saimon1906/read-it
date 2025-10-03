@@ -2,7 +2,7 @@
   {
     "id": 1,
     "slug": "arduino-ina226-basics",
-    "title": "Measuring Voltage & Current with INA226",
+    "title": "unemployment",
     "category": "Electronics",
     "tags": [
       "arduino",
@@ -10,11 +10,11 @@
       "power"
     ],
     "author": "Saimon",
-    "date": "2025-08-30",
+    "date": "2025-10-03",
     "readMin": 6,
     "featured": true,
     "excerpt": "Wiring, calibration, and reading voltage/current with the INA226.",
     "image": "https://picsum.photos/seed/art-ina226/640/360",
-    "url": "#arduino-ina226-basics"
+    "url": "a1.html"
   }
 ]
