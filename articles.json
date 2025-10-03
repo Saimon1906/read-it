@@ -17,4 +17,21 @@
     "image": "https://picsum.photos/seed/art-ina226/640/360",
     "url": "a1.html"
   }
-]
+ {
+    "id": 2,
+"slug": "nightcore-basics",
+"title": "Nightcore",
+"category": "Music",
+"tags": [
+"song",
+"energy",
+"remix"
+],
+"author": "Saimon",
+"date": "2025-10-04",
+"readMin": 6,
+"featured": true,
+"excerpt": "Nightcore songs nightcore songs are nothing but a sub-jounrae and at the same time those are one of the internet classic.",
+"image": "https://blog.pond5.com/wp-content/uploads/sites/5/2024/02/Nightcore_blog_header-scaled.jpg",
+"url": "nightcore.html"
+  }]
