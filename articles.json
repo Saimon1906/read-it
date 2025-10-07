@@ -1,16 +1,14 @@
-[
-  {
-    "id": 1,
+[   {"id": 1,
     "slug": "arduino-ina226-basics",
-    "title": "unemployment",
-    "category": "Electronics",
-    "tags": ["arduino", "sensors", "power"],
+    "title": "music annalisis",
+    "category": "Music",
+    "tags": ["song", "energy", "remix"],
     "author": "Saimon",
-    "date": "2025-10-03",
+    "date": "2025-10-04",
     "readMin": 6,
-    "featured": false,
-    "excerpt": "Wiring, calibration, and reading voltage/current with the INA226.",
-    "image": "https://picsum.photos/seed/art-ina226/640/360",
+    "featured": true,
+    "excerpt": "how do peoople usually listen to music",
+    "image": "https://blog.pond5.com/wp-content/uploads/sites/5/2024/02/Nightcore_blog_header-scaled.jpg",
     "url": "a1.html"
   },
   {
@@ -82,5 +80,19 @@
     "excerpt": "In today’s globalized world, English has become the most widely spoken international language. Learning English brings many advantages, especially for students and professionals.",
     "image": "https://www.example.com/english-learning-image.jpg",
     "url": "a6.html"
+  },
+  {
+    "id": 7,
+    "slug": "arduino-ina226-basics",
+    "title": "unemployment",
+    "category": "Electronics",
+    "tags": ["arduino", "sensors", "power"],
+    "author": "Saimon",
+    "date": "2025-10-03",
+    "readMin": 6,
+    "featured": false,
+    "excerpt": "Wiring, calibration, and reading voltage/current with the INA226.",
+    "image": "https://picsum.photos/seed/art-ina226/640/360",
+    "url": "a7.html"
   }
 ]
