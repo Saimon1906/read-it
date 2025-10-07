@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gliese 581c Flashy Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #000; color: #fff; margin: 0; padding: 0; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        h1 { text-align: center; font-size: 3em; color: #ff0; text-shadow: 0 0 10px #f00, 0 0 20px #f00, 0 0 30px #f00; animation: glow 2s infinite alternate; }
+        p { font-size: 1.2em; line-height: 1.6; margin: 10px 0; color: #0ff; text-shadow: 0 0 5px #00f; }
+        .flashy { animation: flash 1s infinite; }
+        @keyframes glow { 0% { text-shadow: 0 0 10px #f00; } 100% { text-shadow: 0 0 30px #ff0; } }
+        @keyframes flash { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        .star { position: absolute; background: #fff; border-radius: 50%; animation: twinkle 1s infinite; }
+        .star1 { width: 2px; height: 2px; top: 10%; left: 20%; animation-duration: 1.5s; }
+        .star2 { width: 3px; height: 3px; top: 15%; left: 30%; animation-duration: 2s; }
+        .star3 { width: 1px; height: 1px; top: 20%; left: 40%; animation-duration: 1s; }
+        .star4 { width: 4px; height: 4px; top: 25%; left: 50%; animation-duration: 2.5s; }
+        .star5 { width: 2px; height: 2px; top: 30%; left: 60%; animation-duration: 1.2s; }
+        .star6 { width: 3px; height: 3px; top: 35%; left: 70%; animation-duration: 1.8s; }
+        .star7 { width: 1px; height: 1px; top: 40%; left: 80%; animation-duration: 0.9s; }
+        .star8 { width: 2px; height: 2px; top: 45%; left: 90%; animation-duration: 1.6s; }
+        .star9 { width: 3px; height: 3px; top: 50%; left: 10%; animation-duration: 2.1s; }
+        .star10 { width: 4px; height: 4px; top: 55%; left: 15%; animation-duration: 1.4s; }
+        .star11 { width: 2px; height: 2px; top: 60%; left: 25%; animation-duration: 1.7s; }
+        .star12 { width: 1px; height: 1px; top: 65%; left: 35%; animation-duration: 1.1s; }
+        .star13 { width: 3px; height: 3px; top: 70%; left: 45%; animation-duration: 2.3s; }
+        .star14 { width: 2px; height: 2px; top: 75%; left: 55%; animation-duration: 1.9s; }
+        .star15 { width: 4px; height: 4px; top: 80%; left: 65%; animation-duration: 1.3s; }
+        .star16 { width: 1px; height: 1px; top: 85%; left: 75%; animation-duration: 0.8s; }
+        .star17 { width: 3px; height: 3px; top: 90%; left: 85%; animation-duration: 2.4s; }
+        .star18 { width: 2px; height: 2px; top: 95%; left: 95%; animation-duration: 1.5s; }
+        .star19 { width: 4px; height: 4px; top: 5%; left: 5%; animation-duration: 2.2s; }
+        .star20 { width: 1px; height: 1px; top: 10%; left: 15%; animation-duration: 1s; }
+        .star21 { width: 2px; height: 2px; top: 15%; left: 25%; animation-duration: 1.6s; }
+        .star22 { width: 3px; height: 3px; top: 20%; left: 35%; animation-duration: 2s; }
+        .star23 { width: 4px; height: 4px; top: 25%; left: 45%; animation-duration: 1.4s; }
+        .star24 { width: 1px; height: 1px; top: 30%; left: 55%; animation-duration: 0.9s; }
+        .star25 { width: 2px; height: 2px; top: 35%; left: 65%; animation-duration: 1.8s; }
+        .star26 { width: 3px; height: 3px; top: 40%; left: 75%; animation-duration: 2.1s; }
+        .star27 { width: 4px; height: 4px; top: 45%; left: 85%; animation-duration: 1.2s; }
+        .star28 { width: 1px; height: 1px; top: 50%; left: 95%; animation-duration: 1.7s; }
+        .star29 { width: 2px; height: 2px; top: 55%; left: 5%; animation-duration: 2.3s; }
+        .star30 { width: 3px; height: 3px; top: 60%; left: 15%; animation-duration: 1.1s; }
+        .star31 { width: 4px; height: 4px; top: 65%; left: 25%; animation-duration: 1.9s; }
+        .star32 { width: 1px; height: 1px; top: 70%; left: 35%; animation-duration: 2.5s; }
+        .star33 { width: 2px; height: 2px; top: 75%; left: 45%; animation-duration: 1.3s; }
+        .star34 { width: 3px; height: 3px; top: 80%; left: 55%; animation-duration: 0.8s; }
+        .star35 { width: 4px; height: 4px; top: 85%; left: 65%; animation-duration: 2.4s; }
+        .star36 { width: 1px; height: 1px; top: 90%; left: 75%; animation-duration: 1.5s; }
+        .star37 { width: 2px; height: 2px; top: 95%; left: 85%; animation-duration: 2.2s; }
+        .star38 { width: 3px; height: 3px; top: 5%; left: 95%; animation-duration: 1s; }
+        .star39 { width: 4px; height: 4px; top: 10%; left: 5%; animation-duration: 1.6s; }
+        .star40 { width: 1px; height: 1px; top: 15%; left: 15%; animation-duration: 2s; }
+        .star41 { width: 2px; height: 2px; top: 20%; left: 25%; animation-duration: 1.4s; }
+        .star42 { width: 3px; height: 3px; top: 25%; left: 35%; animation-duration: 0.9s; }
+        .star43 { width: 4px; height: 4px; top: 30%; left: 45%; animation-duration: 1.8s; }
+        .star44 { width: 1px; height: 1px; top: 35%; left: 55%; animation-duration: 2.1s; }
+        .star45 { width: 2px; height: 2px; top: 40%; left: 65%; animation-duration: 1.2s; }
+        .star46 { width: 3px; height: 3px; top: 45%; left: 75%; animation-duration: 1.7s; }
+        .star47 { width: 4px; height: 4px; top: 50%; left: 85%; animation-duration: 2.3s; }
+        .star48 { width: 1px; height: 1px; top: 55%; left: 95%; animation-duration: 1.1s; }
+        .star49 { width: 2px; height: 2px; top: 60%; left: 5%; animation-duration: 1.9s; }
+        .star50 { width: 3px; height: 3px; top: 65%; left: 15%; animation-duration: 2.5s; }
+        .star51 { width: 4px; height: 4px; top: 70%; left: 25%; animation-duration: 1.3s; }
+        .star52 { width: 1px; height: 1px; top: 75%; left: 35%; animation-duration: 0.8s; }
+        .star53 { width: 2px; height: 2px; top: 80%; left: 45%; animation-duration: 2.4s; }
+        .star54 { width: 3px; height: 3px; top: 85%; left: 55%; animation-duration: 1.5s; }
+        .star55 { width: 4px; height: 4px; top: 90%; left: 65%; animation-duration: 2.2s; }
+        .star56 { width: 1px; height: 1px; top: 95%; left: 75%; animation-duration: 1s; }
+        .star57 { width: 2px; height: 2px; top: 5%; left: 85%; animation-duration: 1.6s; }
+        .star58 { width: 3px; height: 3px; top: 10%; left: 95%; animation-duration: 2s; }
+        .star59 { width: 4px; height: 4px; top: 15%; left: 5%; animation-duration: 1.4s; }
+        .star60 { width: 1px; height: 1px; top: 20%; left: 15%; animation-duration: 0.9s; }
+        .star61 { width: 2px; height: 2px; top: 25%; left: 25%; animation-duration: 1.8s; }
+        .star62 { width: 3px; height: 3px; top: 30%; left: 35%; animation-duration: 2.1s; }
+        .star63 { width: 4px; height: 4px; top: 35%; left: 45%; animation-duration: 1.2s; }
+        .star64 { width: 1px; height: 1px; top: 40%; left: 55%; animation-duration: 1.7s; }
+        .star65 { width: 2px; height: 2px; top: 45%; left: 65%; animation-duration: 2.3s; }
+        .star66 { width: 3px; height: 3px; top: 50%; left: 75%; animation-duration: 1.1s; }
+        .star67 { width: 4px; height: 4px; top: 55%; left: 85%; animation-duration: 1.9s; }
+        .star68 { width: 1px; height: 1px; top: 60%; left: 95%; animation-duration: 2.5s; }
+        .star69 { width: 2px; height: 2px; top: 65%; left: 5%; animation-duration: 1.3s; }
+        .star70 { width: 3px; height: 3px; top: 70%; left: 15%; animation-duration: 0.8s; }
+        .star71 { width: 4px; height: 4px; top: 75%; left: 25%; animation-duration: 2.4s; }
+        .star72 { width: 1px; height: 1px; top: 80%; left: 35%; animation-duration: 1.5s; }
+        .star73 { width: 2px; height: 2px; top: 85%; left: 45%; animation-duration: 2.2s; }
+        .star74 { width: 3px; height: 3px; top: 90%; left: 55%; animation-duration: 1s; }
+        .star75 { width: 4px; height: 4px; top: 95%; left: 65%; animation-duration: 1.6s; }
+        .star76 { width: 1px; height: 1px; top: 5%; left: 75%; animation-duration: 2s; }
+        .star77 { width: 2px; height: 2px; top: 10%; left: 85%; animation-duration: 1.4s; }
+        .star78 { width: 3px; height: 3px; top: 15%; left: 95%; animation-duration: 0.9s; }
+        .star79 { width: 4px; height: 4px; top: 20%; left: 5%; animation-duration: 1.8s; }
+        .star80 { width: 1px; height: 1px; top: 25%; left: 15%; animation-duration: 2.1s; }
+        .star81 { width: 2px; height: 2px; top: 30%; left: 25%; animation-duration: 1.2s; }
+        .star82 { width: 3px; height: 3px; top: 35%; left: 35%; animation-duration: 1.7s; }
+        .star83 { width: 4px; height: 4px; top: 40%; left: 45%; animation-duration: 2.3s; }
+        .star84 { width: 1px; height: 1px; top: 45%; left: 55%; animation-duration: 1.1s; }
+        .star85 { width: 2px; height: 2px; top: 50%; left: 65%; animation-duration: 1.9s; }
+        .star86 { width: 3px; height: 3px; top: 55%; left: 75%; animation-duration: 2.5s; }
+        .star87 { width: 4px; height: 4px; top: 60%; left: 85%; animation-duration: 1.3s; }
+        .star88 { width: 1px; height: 1px; top: 65%; left: 95%; animation-duration: 0.8s; }
+        .star89 { width: 2px; height: 2px; top: 70%; left: 5%; animation-duration: 2.4s; }
+        .star90 { width: 3px; height: 3px; top: 75%; left: 15%; animation-duration: 1.5s; }
+        .star91 { width: 4px; height: 4px; top: 80%; left: 25%; animation-duration: 2.2s; }
+        .star92 { width: 1px; height: 1px; top: 85%; left: 35%; animation-duration: 1s; }
+        .star93 { width: 2px; height: 2px; top: 90%; left: 45%; animation-duration: 1.6s; }
+        .star94 { width: 3px; height: 3px; top: 95%; left: 55%; animation-duration: 2s; }
+        .star95 { width: 4px; height: 4px; top: 5%; left: 65%; animation-duration: 1.4s; }
+        .star96 { width: 1px; height: 1px; top: 10%; left: 75%; animation-duration: 0.9s; }
+        .star97 { width: 2px; height: 2px; top: 15%; left: 85%; animation-duration: 1.8s; }
+        .star98 { width: 3px; height: 3px; top: 20%; left: 95%; animation-duration: 2.1s; }
+        .star99 { width: 4px; height: 4px; top: 25%; left: 5%; animation-duration: 1.2s; }
+        .star100 { width: 1px; height: 1px; top: 30%; left: 15%; animation-duration: 1.7s; }
+        @keyframes twinkle { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+        .planet { position: relative; margin: 50px auto; width: 200px; height: 200px; background: radial-gradient(circle, #f00, #800); border-radius: 50%; box-shadow: 0 0 50px #f00; animation: rotate 20s linear infinite; }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .orbit { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; border: 2px dashed #ff0; border-radius: 50%; animation: spin 30s linear infinite; }
+        @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        /* More styles to make it heavier */
+        .extra1 { color: red; font-weight: bold; }
+        .extra2 { color: blue; font-style: italic; }
+        .extra3 { color: green; text-decoration: underline; }
+        .extra4 { color: yellow; background: black; }
+        .extra5 { color: purple; border: 1px solid white; }
+        .extra6 { color: orange; padding: 5px; }
+        .extra7 { color: pink; margin: 10px; }
+        .extra8 { color: cyan; display: inline-block; }
+        .extra9 { color: magenta; vertical-align: middle; }
+        .extra10 { color: lime; text-align: center; }
+        .extra11 { color: teal; font-size: 1.5em; }
+        .extra12 { color: indigo; line-height: 2; }
+        .extra13 { color: violet; word-spacing: 2px; }
+        .extra14 { color: gold; letter-spacing: 1px; }
+        .extra15 { color: silver; text-transform: uppercase; }
+        .extra16 { color: maroon; text-shadow: 1px 1px 2px black; }
+        .extra17 { color: navy; box-shadow: 2px 2px 5px gray; }
+        .extra18 { color: olive; border-radius: 5px; }
+        .extra19 { color: fuchsia; opacity: 0.8; }
+        .extra20 { color: aqua; transition: all 0.3s; }
+        /* Even more to extend length */
+        .dummy1 { display: none; }
+        .dummy2 { display: none; }
+        .dummy3 { display: none; }
+        .dummy4 { display: none; }
+        .dummy5 { display: none; }
+        .dummy6 { display: none; }
+        .dummy7 { display: none; }
+        .dummy8 { display: none; }
+        .dummy9 { display: none; }
+        .dummy10 { display: none; }
+        .dummy11 { display: none; }
+        .dummy12 { display: none; }
+        .dummy13 { display: none; }
+        .dummy14 { display: none; }
+        .dummy15 { display: none; }
+        .dummy16 { display: none; }
+        .dummy17 { display: none; }
+        .dummy18 { display: none; }
+        .dummy19 { display: none; }
+        .dummy20 { display: none; }
+        .dummy21 { display: none; }
+        .dummy22 { display: none; }
+        .dummy23 { display: none; }
+        .dummy24 { display: none; }
+        .dummy25 { display: none; }
+        .dummy26 { display: none; }
+        .dummy27 { display: none; }
+        .dummy28 { display: none; }
+        .dummy29 { display: none; }
+        .dummy30 { display: none; }
+        .dummy31 { display: none; }
+        .dummy32 { display: none; }
+        .dummy33 { display: none; }
+        .dummy34 { display: none; }
+        .dummy35 { display: none; }
+        .dummy36 { display: none; }
+        .dummy37 { display: none; }
+        .dummy38 { display: none; }
+        .dummy39 { display: none; }
+        .dummy40 { display: none; }
+        .dummy41 { display: none; }
+        .dummy42 { display: none; }
+        .dummy43 { display: none; }
+        .dummy44 { display: none; }
+        .dummy45 { display: none; }
+        .dummy46 { display: none; }
+        .dummy47 { display: none; }
+        .dummy48 { display: none; }
+        .dummy49 { display: none; }
+        .dummy50 { display: none; }
+        /* Add some JavaScript for interactivity to make it heavier */
+    </style>
+</head>
+<body>
+    <div class="star star1"></div>
+    <div class="star star2"></div>
+    <div class="star star3"></div>
+    <div class="star star4"></div>
+    <div class="star star5"></div>
+    <div class="star star6"></div>
+    <div class="star star7"></div>
+    <div class="star star8"></div>
+    <div class="star star9"></div>
+    <div class="star star10"></div>
+    <div class="star star11"></div>
+    <div class="star star12"></div>
+    <div class="star star13"></div>
+    <div class="star star14"></div>
+    <div class="star star15"></div>
+    <div class="star star16"></div>
+    <div class="star star17"></div>
+    <div class="star star18"></div>
+    <div class="star star19"></div>
+    <div class="star star20"></div>
+    <div class="star star21"></div>
+    <div class="star star22"></div>
+    <div class="star star23"></div>
+    <div class="star star24"></div>
+    <div class="star star25"></div>
+    <div class="star star26"></div>
+    <div class="star star27"></div>
+    <div class="star star28"></div>
+    <div class="star star29"></div>
+    <div class="star star30"></div>
+    <div class="star star31"></div>
+    <div class="star star32"></div>
+    <div class="star star33"></div>
+    <div class="star star34"></div>
+    <div class="star star35"></div>
+    <div class="star star36"></div>
+    <div class="star star37"></div>
+    <div class="star star38"></div>
+    <div class="star star39"></div>
+    <div class="star star40"></div>
+    <div class="star star41"></div>
+    <div class="star star42"></div>
+    <div class="star star43"></div>
+    <div class="star star44"></div>
+    <div class="star star45"></div>
+    <div class="star star46"></div>
+    <div class="star star47"></div>
+    <div class="star star48"></div>
+    <div class="star star49"></div>
+    <div class="star star50"></div>
+    <div class="star star51"></div>
+    <div class="star star52"></div>
+    <div class="star star53"></div>
+    <div class="star star54"></div>
+    <div class="star star55"></div>
+    <div class="star star56"></div>
+    <div class="star star57"></div>
+    <div class="star star58"></div>
+    <div class="star star59"></div>
+    <div class="star star60"></div>
+    <div class="star star61"></div>
+    <div class="star star62"></div>
+    <div class="star star63"></div>
+    <div class="star star64"></div>
+    <div class="star star65"></div>
+    <div class="star star66"></div>
+    <div class="star star67"></div>
+    <div class="star star68"></div>
+    <div class="star star69"></div>
+    <div class="star star70"></div>
+    <div class="star star71"></div>
+    <div class="star star72"></div>
+    <div class="star star73"></div>
+    <div class="star star74"></div>
+    <div class="star star75"></div>
+    <div class="star star76"></div>
+    <div class="star star77"></div>
+    <div class="star star78"></div>
+    <div class="star star79"></div>
+    <div class="star star80"></div>
+    <div class="star star81"></div>
+    <div class="star star82"></div>
+    <div class="star star83"></div>
+    <div class="star star84"></div>
+    <div class="star star85"></div>
+    <div class="star star86"></div>
+    <div class="star star87"></div>
+    <div class="star star88"></div>
+    <div class="star star89"></div>
+    <div class="star star90"></div>
+    <div class="star star91"></div>
+    <div class="star star92"></div>
+    <div class="star star93"></div>
+    <div class="star star94"></div>
+    <div class="star star95"></div>
+    <div class="star star96"></div>
+    <div class="star star97"></div>
+    <div class="star star98"></div>
+    <div class="star star99"></div>
+    <div class="star star100"></div>
+    <div class="container">
+        <h1 class="flashy">Gliese 581c</h1>
+        <div class="orbit">
+            <div class="planet"></div>
+        </div>
+        <p class="flashy extra1">It's a planet located 20 light years away from earth and made with mostly rocks.</p>
+        <p class="flashy extra2">It was discovered back in 2007.it orbits a red dwarf star.</p>
+        <p class="flashy extra3">At first it was thought that it was habitable but later it was discovered that its too hot to live in just like venus.</p>
+        <p class="flashy extra4">It receives 30 percent more stella energy than earth.</p>
+        <p class="flashy extra5">Is likely contains a lot of co2 on its surface.</p>
+        <p class="flashy extra6">It is likely that half of its</p>
+        <p class="flashy extra7">I</p>
+        <p class="flashy extra8">surface is cold and other half of it is cold.</p>
+        <!-- Dummy divs to make HTML longer -->
+        <div class="dummy1"></div>
+        <div class="dummy2"></div>
+        <div class="dummy3"></div>
+        <div class="dummy4"></div>
+        <div class="dummy5"></div>
+        <div class="dummy6"></div>
+        <div class="dummy7"></div>
+        <div class="dummy8"></div>
+        <div class="dummy9"></div>
+        <div class="dummy10"></div>
+        <div class="dummy11"></div>
+        <div class="dummy12"></div>
+        <div class="dummy13"></div>
+        <div class="dummy14"></div>
+        <div class="dummy15"></div>
+        <div class="dummy16"></div>
+        <div class="dummy17"></div>
+        <div class="dummy18"></div>
+        <div class="dummy19"></div>
+        <div class="dummy20"></div>
+        <div class="dummy21"></div>
+        <div class="dummy22"></div>
+        <div class="dummy23"></div>
+        <div class="dummy24"></div>
+        <div class="dummy25"></div>
+        <div class="dummy26"></div>
+        <div class="dummy27"></div>
+        <div class="dummy28"></div>
+        <div class="dummy29"></div>
+        <div class="dummy30"></div>
+        <div class="dummy31"></div>
+        <div class="dummy32"></div>
+        <div class="dummy33"></div>
+        <div class="dummy34"></div>
+        <div class="dummy35"></div>
+        <div class="dummy36"></div>
+        <div class="dummy37"></div>
+        <div class="dummy38"></div>
+        <div class="dummy39"></div>
+        <div class="dummy40"></div>
+        <div class="dummy41"></div>
+        <div class="dummy42"></div>
+        <div class="dummy43"></div>
+        <div class="dummy44"></div>
+        <div class="dummy45"></div>
+        <div class="dummy46"></div>
+        <div class="dummy47"></div>
+        <div class="dummy48"></div>
+        <div class="dummy49"></div>
+        <div class="dummy50"></div>
+    </div>
+    <script>
+        // JavaScript to add more weight
+        function dummyFunc1() { console.log('dummy1'); }
+        function dummyFunc2() { console.log('dummy2'); }
+        function dummyFunc3() { console.log('dummy3'); }
+        function dummyFunc4() { console.log('dummy4'); }
+        function dummyFunc5() { console.log('dummy5'); }
+        function dummyFunc6() { console.log('dummy6'); }
+        function dummyFunc7() { console.log('dummy7'); }
+        function dummyFunc8() { console.log('dummy8'); }
+        function dummyFunc9() { console.log('dummy9'); }
+        function dummyFunc10() { console.log('dummy10'); }
+        function dummyFunc11() { console.log('dummy11'); }
+        function dummyFunc12() { console.log('dummy12'); }
+        function dummyFunc13() { console.log('dummy13'); }
+        function dummyFunc14() { console.log('dummy14'); }
+        function dummyFunc15() { console.log('dummy15'); }
+        function dummyFunc16() { console.log('dummy16'); }
+        function dummyFunc17() { console.log('dummy17'); }
+        function dummyFunc18() { console.log('dummy18'); }
+        function dummyFunc19() { console.log('dummy19'); }
+        function dummyFunc20() { console.log('dummy20'); }
+        function dummyFunc21() { console.log('dummy21'); }
+        function dummyFunc22() { console.log('dummy22'); }
+        function dummyFunc23() { console.log('dummy23'); }
+        function dummyFunc24() { console.log('dummy24'); }
+        function dummyFunc25() { console.log('dummy25'); }
+        function dummyFunc26() { console.log('dummy26'); }
+        function dummyFunc27() { console.log('dummy27'); }
+        function dummyFunc28() { console.log('dummy28'); }
+        function dummyFunc29() { console.log('dummy29'); }
+        function dummyFunc30() { console.log('dummy30'); }
+        function dummyFunc31() { console.log('dummy31'); }
+        function dummyFunc32() { console.log('dummy32'); }
+        function dummyFunc33() { console.log('dummy33'); }
+        function dummyFunc34() { console.log('dummy34'); }
+        function dummyFunc35() { console.log('dummy35'); }
+        function dummyFunc36() { console.log('dummy36'); }
+        function dummyFunc37() { console.log('dummy37'); }
+        function dummyFunc38() { console.log('dummy38'); }
+        function dummyFunc39() { console.log('dummy39'); }
+        function dummyFunc40() { console.log('dummy40'); }
+        function dummyFunc41() { console.log('dummy41'); }
+        function dummyFunc42() { console.log('dummy42'); }
+        function dummyFunc43() { console.log('dummy43'); }
+        function dummyFunc44() { console.log('dummy44'); }
+        function dummyFunc45() { console.log('dummy45'); }
+        function dummyFunc46() { console.log('dummy46'); }
+        function dummyFunc47() { console.log('dummy47'); }
+        function dummyFunc48() { console.log('dummy48'); }
+        function dummyFunc49() { console.log('dummy49'); }
+        function dummyFunc50() { console.log('dummy50'); }
+        // Call them in a loop or something, but not really
+        setInterval(() => {
+            dummyFunc1(); dummyFunc2(); dummyFunc3(); dummyFunc4(); dummyFunc5();
+            dummyFunc6(); dummyFunc7(); dummyFunc8(); dummyFunc9(); dummyFunc10();
+            // ... and so on, but to keep it finite
+        }, 10000);
+    </script>
+</body>
+</html>
