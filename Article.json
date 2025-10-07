@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "slug": "arduino-ina226-basics",
+    "title": "unemployment",
+    "category": "Electronics",
+    "tags": [
+      "arduino",
+      "sensors",
+      "power"
+    ],
+    "author": "Saimon",
+    "date": "2025-10-03",
+    "readMin": 6,
+    "featured": true,
+    "excerpt": "Wiring, calibration, and reading voltage/current with the INA226.",
+    "image": "https://picsum.photos/seed/art-ina226/640/360",
+    "url": "a1.html"
+  },
+ {
+    "id": 2,
+"slug": "arduino-ina226-basics",
+"title": "Nightcore",
+"category": "Music",
+"tags": [
+"song",
+"energy",
+"remix"
+],
+"author": "Saimon",
+"date": "2025-10-04",
+"readMin": 6,
+"featured": true,
+"excerpt": "Nightcore songs nightcore songs are nothing but a sub-jounrae and at the same time those are one of the internet classic.",
+"image": "https://blog.pond5.com/wp-content/uploads/sites/5/2024/02/Nightcore_blog_header-scaled.jpg",
+"url": "a2.html"
+  },
+  {
+    "id": 3,
+"slug": "arduino-ina226-basics",
+"title": "exo planet G581c",
+"category": "austronomi",
+"tags": [
+"Planet",
+"Solar",
+"Exo planet"
+],
+"author": "Saimon",
+"date": "2025-10-07",
+"readMin": 6,
+"featured": true,
+"excerpt": "closest exo planet known to mankind.",
+"image": "https://blog.pond5.com/wp-content/uploads/sites/5/2024/02/Nightcore_blog_header-scaled.jpg",
+"url": "a3.html"
+  }, 
+
+{ “id”: 4, “slug”: “role-of-technology-in-education”, “title”: “The Role of Technology in Education”, “category”: “education”, “tags”: [ “Technology”, “Education”, “Learning” ], “author”: “Grok”, “date”: “2025-10-07”, “readMin”: 4, “featured”: true, “excerpt”: “Technology has transformed nearly every aspect of modern life and education is no exception.”, “image”: “https://www.example.com/education-tech-image.jpg”, “url”: “a4.html” },
+
+{ “id”: 5, “slug”: “importance-of-sports-in-daily-life”, “title”: “The importance of sports in daily life”, “category”: “health”, “tags”: [ “Sports”, “Fitness”, “Well-being” ], “author”: “Grok”, “date”: “2025-10-07”, “readMin”: 5, “featured”: true, “excerpt”: “Sports play a vital role in keeping both the body and mind healthy. In today’s busy world, many people spend most of their time sitting in office or studying in classrooms, which can lead to stress and health problems.”, “image”: “https://www.example.com/sports-image.jpg”, “url”: “a5.html” },
+
+{ “id”: 6, “slug”: “advantages-of-learning-english”, “title”: “Advantages of Learning English”, “category”: “language”, “tags”: [ “English”, “Learning”, “Globalization” ], “author”: “Grok”, “date”: “2025-10-07”, “readMin”: 4, “featured”: true, “excerpt”: “In today’s globalized world, English has become the most widely spoken international language. Learning English brings many advantages, especially for students and professionals.”, “image”: “https://www.example.com/english-learning-image.jpg”, “url”: “a6.html” }
+]
