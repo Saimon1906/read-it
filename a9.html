@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Video Entertainment Analysis</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9d6c, #bb4e75, #5b0f8e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff; }
+            to { text-shadow: 0 0 20px #00ffff, 0 0 30px #ff00ff; }
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chart-container {
+            position: relative;
+            height: 500px;
+            margin: 50px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 30px #00ffff;
+            overflow: hidden;
+        }
+
+        .bar {
+            position: absolute;
+            bottom: 0;
+            width: 100px;
+            background: linear-gradient(to top, #4facfe, #00f2fe);
+            border-radius: 10px 10px 0 0;
+            animation: barGrow 2s ease-out;
+            box-shadow: 0 0 10px #00f2fe;
+        }
+
+        @keyframes barGrow {
+            from { height: 0; }
+            to { height: var(--height); }
+        }
+
+        .label {
+            position: absolute;
+            bottom: -30px;
+            width: 100px;
+            text-align: center;
+            font-size: 0.9em;
+            transform: rotate(-45deg);
+            color: #fff;
+        }
+
+        .change {
+            position: absolute;
+            top: -30px;
+            width: 100px;
+            text-align: center;
+            font-weight: bold;
+            animation: changePulse 1.5s infinite;
+        }
+
+        @keyframes changePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 50%;
+            animation: particleMove 5s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes particleMove {
+            0% { transform: translate(0, 0); opacity: 0.7; }
+            100% { transform: translate(var(--dx), var(--dy)); opacity: 0; }
+        }
+
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #ff0, #f00);
+            border-radius: 50%;
+            animation: fireworkExplode 1s ease-out;
+        }
+
+        @keyframes fireworkExplode {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bar Chart: Consumer Spending on Home Video Entertainment (Selected Categories: USA, 2017)</h1>
+        <p>The graph chart exemplify the consumption of home video industry in USA in the following year 2017. Subsequently, it emphasise the change of consumption rate from previous year.</p>
+        <p>At first, we can observe that, the total home video entertainment industry is leaping around 18 billions of dollars; which is the highest among all the categories and it grew by 10% the following year. Secondly, subscriptions to video streaming sites holds the most amount of improvement of 32% that year and the industry holds a 10 billion of dollars worth of market.</p>
+        <p>Conversely, in terms of dvd and blue ray sales there is a 14% dip from previous year’s sales; wheres, its holding a 4.5 billion dollars market.  At the same time, dvd and blue ray rental revenue through post and shop were at the rock bottom of the chart. consisting only of .5 billion each, which is just a fraction of the  market and revenue descendent rate was 20% and 21% respectively.</p>
+        <p>From the graph it’s prespwquious that there’s a upward trend when it comes to streaming services and downloads trends when it comes to physical media.</p>
+        <div class="chart-container" id="chart">
+            <!-- Bars will be added via JS -->
+        </div>
+    </div>
+    <script>
+        // Long, verbose code for creativity and flashiness
+
+        // Define data verbosely
+        const chartData = [
+            {
+                label: 'Total (all home video entertainment)',
+                value: 18,
+                change: '+10%',
+                color: '#4facfe',
+                changeColor: '#00ff00',
+                position: 100
+            },
+            {
+                label: 'Subscriptions to video streaming sites/apps',
+                value: 10,
+                change: '+32%',
+                color: '#00f2fe',
+                changeColor: '#00ff00',
+                position: 250
+            },
+            {
+                label: 'DVD and Blu-ray sales',
+                value: 4.5,
+                change: '-14%',
+                color: '#0072ff',
+                changeColor: '#ff0000',
+                position: 400
+            },
+            {
+                label: 'DVD and Blu-ray rent-by-post services',
+                value: 0.5,
+                change: '-20%',
+                color: '#004cff',
+                changeColor: '#ff0000',
+                position: 550
+            },
+            {
+                label: 'DVD and Blu-ray rentals from shops',
+                value: 0.5,
+                change: '-21%',
+                color: '#0033ff',
+                changeColor: '#ff0000',
+                position: 700
+            }
+        ];
+
+        // Function to create bar elements verbosely
+        function createBar(item, index) {
+            const bar = document.createElement('div');
+            bar.className = 'bar';
+            bar.style.left = item.position + 'px';
+            bar.style.height = (item.value * 20) + 'px'; // Scale verbosely
+            bar.style.background = 'linear-gradient(to top, ' + item.color + ', ' + lightenColor(item.color, 50) + ')';
+            bar.style.setProperty('--height', (item.value * 20) + 'px');
+
+            const label = document.createElement('div');
+            label.className = 'label';
+            label.style.left = item.position + 'px';
+            label.innerText = item.label;
+
+            const change = document.createElement('div');
+            change.className = 'change';
+            change.style.left = item.position + 'px';
+            change.style.top = (500 - (item.value * 20) - 30) + 'px';
+            change.innerText = item.change;
+            change.style.color = item.changeColor;
+            if (item.change.startsWith('+')) {
+                change.style.animation = 'changePulse 1.5s infinite';
+            } else {
+                change.style.animation = 'changePulse 1.5s infinite reverse';
+            }
+
+            return { bar, label, change };
+        }
+
+        // Helper function to lighten color verbosely
+        function lightenColor(color, percent) {
+            const num = parseInt(color.replace("#",""),16);
+            const amt = Math.round(2.55 * percent);
+            const R = (num >> 16) + amt;
+            const B = (num >> 8 & 0x00FF) + amt;
+            const G = (num & 0x0000FF) + amt;
+            return '#' + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
+        }
+
+        // Add bars to chart verbosely
+        const chart = document.getElementById('chart');
+        chartData.forEach((item, index) => {
+            const elements = createBar(item, index);
+            chart.appendChild(elements.bar);
+            chart.appendChild(elements.label);
+            chart.appendChild(elements.change);
+        });
+
+        // Add x-axis labels verbosely
+        const xAxis = document.createElement('div');
+        xAxis.style.position = 'absolute';
+        xAxis.style.bottom = '0';
+        xAxis.style.left = '0';
+        xAxis.style.width = '100%';
+        xAxis.style.height = '2px';
+        xAxis.style.background = '#fff';
+        chart.appendChild(xAxis);
+
+        const ticks = [0, 5, 10, 15, 20];
+        ticks.forEach(tick => {
+            const tickMark = document.createElement('div');
+            tickMark.style.position = 'absolute';
+            tickMark.style.bottom = '-10px';
+            tickMark.style.left = (tick * 50) + 'px'; // Scale
+            tickMark.innerText = tick;
+            chart.appendChild(tickMark);
+        });
+
+        const xLabel = document.createElement('div');
+        xLabel.style.position = 'absolute';
+        xLabel.style.bottom = '-40px';
+        xLabel.style.left = '50%';
+        xLabel.style.transform = 'translateX(-50%)';
+        xLabel.innerText = 'Billions of dollars';
+        xLabel.style.fontSize = '1.2em';
+        chart.appendChild(xLabel);
+
+        const changeLabel = document.createElement('div');
+        changeLabel.style.position = 'absolute';
+        changeLabel.style.top = '10px';
+        changeLabel.style.right = '20px';
+        changeLabel.innerText = 'Change from 2016';
+        changeLabel.style.fontSize = '1.2em';
+        chart.appendChild(changeLabel);
+
+        // Particle effects for flashiness
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = Math.random() * window.innerHeight + 'px';
+            particle.style.setProperty('--dx', (Math.random() - 0.5) * 200 + 'px');
+            particle.style.setProperty('--dy', (Math.random() - 0.5) * 200 + 'px');
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 5000);
+        }
+
+        setInterval(createParticle, 200);
+
+        // Firework effects on click for interactivity
+        document.body.addEventListener('click', (e) => {
+            for (let i = 0; i < 20; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.left = e.clientX + 'px';
+                firework.style.top = e.clientY + 'px';
+                firework.style.background = 'radial-gradient(circle, #' + Math.floor(Math.random()*16777215).toString(16) + ', #' + Math.floor(Math.random()*16777215).toString(16) + ')';
+                firework.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(firework);
+                setTimeout(() => firework.remove(), 1000);
+            }
+        });
+
+        // More verbose animations: rotate labels slightly
+        const labels = document.querySelectorAll('.label');
+        labels.forEach(label => {
+            label.style.transition = 'transform 0.5s';
+            label.addEventListener('mouseover', () => {
+                label.style.transform = 'rotate(0deg)';
+            });
+            label.addEventListener('mouseout', () => {
+                label.style.transform = 'rotate(-45deg)';
+            });
+        });
+
+        // Add glowing borders to paragraphs
+        const paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(p => {
+            p.style.transition = 'box-shadow 0.3s';
+            p.addEventListener('mouseover', () => {
+                p.style.boxShadow = '0 0 30px #ff00ff';
+            });
+            p.addEventListener('mouseout', () => {
+                p.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.3)';
+            });
+        });
+
+        // Verbose scrolling parallax effect
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            document.body.style.backgroundPositionY = scrollPos * 0.5 + 'px';
+            paragraphs.forEach((p, index) => {
+                p.style.transform = 'translateY(' + (scrollPos * (index * 0.1)) + 'px)';
+            });
+        });
+
+        // Add random sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'absolute';
+            sparkle.style.width = '10px';
+            sparkle.style.height = '10px';
+            sparkle.style.background = '#fff';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.boxShadow = '0 0 20px #fff';
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = Math.random() * window.innerHeight + 'px';
+            sparkle.style.animation = 'sparkleFade 1s ease-out';
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 1000);
+        }
+
+        @keyframes sparkleFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        setInterval(createSparkle, 500);
+
+        // Even more: confetti on load
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.background = '#' + Math.floor(Math.random()*16777215).toString(16);
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-10px';
+                confetti.style.animation = 'confettiFall ' + (Math.random() * 3 + 2) + 's linear';
+                confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        @keyframes confettiFall {
+            0% { top: -10px; }
+            100% { top: 100vh; }
+        }
+
+        window.onload = createConfetti;
+
+        // Verbose tooltip for bars
+        const bars = document.querySelectorAll('.bar');
+        bars.forEach(bar => {
+            const tooltip = document.createElement('div');
+            tooltip.style.position = 'absolute';
+            tooltip.style.background = '#000';
+            tooltip.style.color = '#fff';
+            tooltip.style.padding = '5px';
+            tooltip.style.borderRadius = '5px';
+            tooltip.style.display = 'none';
+            tooltip.style.pointerEvents = 'none';
+            document.body.appendChild(tooltip);
+
+            bar.addEventListener('mouseover', (e) => {
+                tooltip.innerText = bar.parentElement.querySelector('.label').innerText + ': ' + (parseFloat(bar.style.height) / 20) + 'B $';
+                tooltip.style.display = 'block';
+                tooltip.style.left = e.pageX + 10 + 'px';
+                tooltip.style.top = e.pageY + 10 + 'px';
+            });
+
+            bar.addEventListener('mousemove', (e) => {
+                tooltip.style.left = e.pageX + 10 + 'px';
+                tooltip.style.top = e.pageY + 10 + 'px';
+            });
+
+            bar.addEventListener('mouseout', () => {
+                tooltip.style.display = 'none';
+            });
+        });
+
+        // Add audio for flashiness? No, keep silent but add vibration simulation via animation
+
+        // More: rainbow text for title
+        const title = document.querySelector('h1');
+        const titleText = title.innerText;
+        title.innerHTML = '';
+        titleText.split('').forEach(char => {
+            const span = document.createElement('span');
+            span.innerText = char;
+            span.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);
+            span.style.transition = 'color 0.5s';
+            title.appendChild(span);
+        });
+
+        setInterval(() => {
+            title.querySelectorAll('span').forEach(span => {
+                span.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);
+            });
+        }, 2000);
+
+        // Verbose end of script
+    </script>
+</body>
+</html>
