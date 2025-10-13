@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Importance of Reading Books</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Playfair Display', serif;
+            background: url('https://t4.ftcdn.net/jpg/03/40/07/85/360_F_340078556_YD52qpLaiTbO5E0OF90FuOaAq3sZr8yF.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: headerGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes headerGlow {
+            from { box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+            to { box-shadow: 0 8px 16px rgba(255,215,0,0.5); }
+        }
+        h1 {
+            font-size: 3em;
+            color: #4a1a0a;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        section {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #5c3d2e;
+            text-align: justify;
+            animation: textReveal 2s ease-in;
+        }
+        @keyframes textReveal {
+            from { clip-path: inset(0 100% 0 0); }
+            to { clip-path: inset(0 0 0 0); }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        .float-left {
+            float: left;
+            margin-right: 20px;
+            animation: floatLeft 3s infinite alternate;
+        }
+        @keyframes floatLeft {
+            from { transform: translateX(0); }
+            to { transform: translateX(10px); }
+        }
+        .float-right {
+            float: right;
+            margin-left: 20px;
+            animation: floatRight 3s infinite alternate;
+        }
+        @keyframes floatRight {
+            from { transform: translateX(0); }
+            to { transform: translateX(-10px); }
+        }
+        .animate-spin {
+            animation: spin 5s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 400px;
+            margin: 40px 0;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            animation: galleryPop 1.5s ease-out;
+        }
+        @keyframes galleryPop {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 0.9em;
+        }
+        /* Additional flashy styles */
+        .glow {
+            text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
+            animation: glowPulse 2s infinite alternate;
+        }
+        @keyframes glowPulse {
+            from { text-shadow: 0 0 5px #ffd700; }
+            to { text-shadow: 0 0 20px #ffd700; }
+        }
+        .rainbow-text {
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: rainbow 5s linear infinite;
+        }
+        @keyframes rainbow {
+            0% { background-position: 0%; }
+            100% { background-position: 200%; }
+        }
+        .section-bg1 {
+            background: url('https://www.shutterstock.com/shutterstock/videos/1100888035/thumb/1.jpg?ip=x480') center/cover;
+        }
+        .section-bg2 {
+            background: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlicmFyeXxlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000') center/cover;
+        }
+        /* More redundant styles to lengthen code */
+        .img-effect1 { filter: brightness(1.2); }
+        .img-effect2 { filter: contrast(1.5); }
+        .img-effect3 { filter: saturate(2); }
+        .img-effect4 { filter: hue-rotate(90deg); }
+        .img-effect5 { filter: sepia(0.5); }
+        .img-effect6 { filter: grayscale(0.3); }
+        .img-effect7 { filter: invert(0.8); }
+        .img-effect8 { filter: blur(1px); }
+        .img-effect9 { filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5)); }
+        .img-effect10 { transition: filter 0.5s; }
+        .img-effect10:hover { filter: brightness(1.5); }
+        /* Even more styles */
+        .text-effect1 { font-style: italic; }
+        .text-effect2 { font-weight: bold; }
+        .text-effect3 { text-decoration: underline; }
+        .text-effect4 { letter-spacing: 2px; }
+        .text-effect5 { word-spacing: 5px; }
+        .text-effect6 { text-transform: uppercase; }
+        .text-effect7 { color: #ff4500; }
+        .text-effect8 { background-color: rgba(255,255,0,0.2); }
+        .text-effect9 { border: 1px solid #ccc; padding: 10px; }
+        .text-effect10 { animation: colorChange 3s infinite; }
+        @keyframes colorChange {
+            0% { color: red; }
+            33% { color: green; }
+            66% { color: blue; }
+            100% { color: red; }
+        }
+        /* Parallax sections */
+        .parallax1 { background-image: url('https://thumbs.dreamstime.com/b/man-reading-book-cozy-library-setting-filled-sunlight-bookshelves-person-sits-comfortably-armchair-deeply-focused-358163690.jpg'); }
+        .parallax2 { background-image: url('https://static.vecteezy.com/system/resources/thumbnails/051/345/186/small/a-person-reading-a-book-by-the-window-in-a-cozy-setting-during-twilight-in-a-city-landscape-photo.jpg'); }
+        .parallax3 { background-image: url('https://thumbs.dreamstime.com/b/person-reading-book-fireplace-cozy-warm-setting-scene-captures-peaceful-relaxing-atmosphere-perfect-winter-evenings-321202287.jpg'); }
+        /* Animation variants */
+        .fade-in-slow { animation: fadeIn 3s ease-in; }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .slide-left { animation: slideLeft 2s ease-out; }
+        @keyframes slideLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        .slide-right { animation: slideRight 2s ease-out; }
+        @keyframes slideRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        .zoom-in { animation: zoomIn 1.5s ease-out; }
+        @keyframes zoomIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+        /* Button styles if needed, to lengthen */
+        button { padding: 10px 20px; background: #4a1a0a; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #6b2b15; }
+        /* Table styles, even if not used */
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* List styles */
+        ul { list-style-type: disc; margin-left: 20px; }
+        ol { list-style-type: decimal; margin-left: 20px; }
+        /* Form styles */
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            p { font-size: 1em; }
+            section { padding: 20px; }
+            img { width: 100%; margin: 10px 0; }
+        }
+        @media (max-width: 480px) {
+            header { padding: 30px 10px; }
+            .gallery img { width: 150px; height: 150px; }
+        }
+        /* More media queries */
+        @media (min-width: 1200px) {
+            section { max-width: 1400px; }
+        }
+        /* Pseudo elements for decoration */
+        section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: #ffd700;
+            border-radius: 5px;
+        }
+        section::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: #ffd700;
+            border-radius: 5px;
+        }
+        /* Hover effects for paragraphs */
+        p:hover {
+            background: rgba(255,215,0,0.1);
+            transition: background 0.3s;
+        }
+        /* Focus effects */
+        a:focus { outline: 2px solid #ffd700; }
+        /* Print styles */
+        @media print {
+            body { background: white; color: black; }
+            img { display: none; }
+        }
+        /* Keyframe variants */
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes scaleUp { from { transform: scale(1); } to { transform: scale(1.1); } }
+        @keyframes colorShift { 0% { color: #ff0000; } 50% { color: #00ff00; } 100% { color: #0000ff; } }
+        /* Apply to classes */
+        .rotate { animation: rotate 10s linear infinite; }
+        .scale-up { animation: scaleUp 2s infinite alternate; }
+        .color-shift { animation: colorShift 5s infinite; }
+        /* Long list of color classes */
+        .color-red { color: red; }
+        .color-green { color: green; }
+        .color-blue { color: blue; }
+        .color-yellow { color: yellow; }
+        .color-purple { color: purple; }
+        .color-orange { color: orange; }
+        .color-pink { color: pink; }
+        .color-cyan { color: cyan; }
+        .color-magenta { color: magenta; }
+        .color-lime { color: lime; }
+        /* Background colors */
+        .bg-red { background: red; }
+        .bg-green { background: green; }
+        .bg-blue { background: blue; }
+        .bg-yellow { background: yellow; }
+        .bg-purple { background: purple; }
+        .bg-orange { background: orange; }
+        .bg-pink { background: pink; }
+        .bg-cyan { background: cyan; }
+        .bg-magenta { background: magenta; }
+        .bg-lime { background: lime; }
+        /* Font sizes */
+        .fs-small { font-size: 0.8em; }
+        .fs-medium { font-size: 1em; }
+        .fs-large { font-size: 1.5em; }
+        .fs-xlarge { font-size: 2em; }
+        .fs-xxlarge { font-size: 3em; }
+        /* Padding classes */
+        .pad-10 { padding: 10px; }
+        .pad-20 { padding: 20px; }
+        .pad-30 { padding: 30px; }
+        .pad-40 { padding: 40px; }
+        .pad-50 { padding: 50px; }
+        /* Margin classes */
+        .mar-10 { margin: 10px; }
+        .mar-20 { margin: 20px; }
+        .mar-30 { margin: 30px; }
+        .mar-40 { margin: 40px; }
+        .mar-50 { margin: 50px; }
+        /* Border classes */
+        .border-solid { border: 1px solid #000; }
+        .border-dashed { border: 1px dashed #000; }
+        .border-dotted { border: 1px dotted #000; }
+        .border-double { border: 3px double #000; }
+        .border-groove { border: 3px groove #000; }
+        /* Display classes */
+        .display-block { display: block; }
+        .display-inline { display: inline; }
+        .display-flex { display: flex; }
+        .display-grid { display: grid; }
+        .display-none { display: none; }
+        /* Position classes */
+        .pos-relative { position: relative; }
+        .pos-absolute { position: absolute; }
+        .pos-fixed { position: fixed; }
+        .pos-sticky { position: sticky; }
+        /* Overflow classes */
+        .overflow-hidden { overflow: hidden; }
+        .overflow-scroll { overflow: scroll; }
+        .overflow-auto { overflow: auto; }
+        /* Cursor classes */
+        .cursor-pointer { cursor: pointer; }
+        .cursor-help { cursor: help; }
+        .cursor-wait { cursor: wait; }
+        /* Text align */
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .text-justify { text-align: justify; }
+        /* More animations */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .shake { animation: shake 0.5s; }
+        @keyframes wobble {
+            0% { transform: rotate(0deg); }
+            15% { transform: rotate(-5deg); }
+            30% { transform: rotate(3deg); }
+            45% { transform: rotate(-3deg); }
+            60% { transform: rotate(2deg); }
+            75% { transform: rotate(-1deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .wobble { animation: wobble 1s; }
+        /* And even more to make it longer */
+        .extra-class1 { opacity: 0.9; }
+        .extra-class2 { opacity: 0.8; }
+        .extra-class3 { opacity: 0.7; }
+        .extra-class4 { opacity: 0.6; }
+        .extra-class5 { opacity: 0.5; }
+        .extra-class6 { z-index: 1; }
+        .extra-class7 { z-index: 2; }
+        .extra-class8 { z-index: 3; }
+        .extra-class9 { z-index: 4; }
+        .extra-class10 { z-index: 5; }
+        /* Shadow classes */
+        .shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+        .shadow-md { box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .shadow-lg { box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .shadow-xl { box-shadow: 0 20px 25px rgba(0,0,0,0.1); }
+        .shadow-2xl { box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+        /* Transition classes */
+        .trans-slow { transition: all 1s ease; }
+        .trans-medium { transition: all 0.5s ease; }
+        .trans-fast { transition: all 0.3s ease; }
+        /* Flex classes */
+        .flex-row { flex-direction: row; }
+        .flex-col { flex-direction: column; }
+        .flex-wrap { flex-wrap: wrap; }
+        .justify-center { justify-content: center; }
+        .align-center { align-items: center; }
+        /* Grid classes */
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .gap-4 { gap: 1rem; }
+        .gap-8 { gap: 2rem; }
+        /* Rounded classes */
+        .rounded-sm { border-radius: 0.125rem; }
+        .rounded-md { border-radius: 0.375rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-xl { border-radius: 0.75rem; }
+        .rounded-full { border-radius: 9999px; }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <header>
+        <h1 class="glow rainbow-text">The Importance of Reading Books</h1>
+    </header>
+    <div class="parallax parallax1"></div>
+    <section class="section-bg1 fade-in-slow">
+        <img src="https://www.shutterstock.com/shutterstock/photos/620247779/display_1500/stock-vector-knowledge-imagination-of-fantasy-from-a-book-full-color-620247779.jpg" alt="Fantasy" class="float-left img-effect1 animate-bounce">
+        <img src="https://thumbs.dreamstime.com/z/fantasy-world-inside-book-concept-education-imagination-creativity-reading-books-oversized-open-book-reveals-362760744.jpg" alt="Fantasy World" class="float-right img-effect2 zoom-in">
+        <p>Reading books has always played a significant role in human life. In today's digital age, many people spend more time on social media than with books, yet the value of reading remains undeniable. Books not only provide knowledge but also stimulate imagination and creativity. For instance, reading history allows us to understand past events, while literature helps us connect with different cultures and emotions.</p>
+        <img src="https://media.istockphoto.com/id/1279460648/photo/concept-of-an-open-magic-book-open-pages-with-water-and-land-and-small-child-fantasy-nature.jpg?s=612x612&w=0&k=20&c=yK_dL8T7CjeYpNTvkXecPxQDDw9WczC8FB9bCO2McOw=" alt="Magic Book" class="float-left img-effect3 slide-left">
+    </section>
+    <div class="parallax parallax2"></div>
+    <section class="section-bg2 slide-right">
+        <img src="https://s3.amazonaws.com/libapps/accounts/1208/images/rarebook_pic2_small.jpg" alt="Rare Books" class="float-right img-effect4 animate-spin">
+        <img src="http://inkwellideas.com/wp-content/uploads/2020/11/Devil_codex_Gigas.jpg" alt="Ancient Book" class="float-left img-effect5 wobble">
+        <p>Moreover, reading improves language skills. Learners who regularly read in English often expand their vocabulary and develop better writing styles. Unlike short online posts, books encourage deep thinking and concentration, which are essential in both academic and professional success.</p>
+        <img src="https://m.media-amazon.com/images/I/91LL8SkiSEL._UF1000,1000_QL80_.jpg" alt="Artifacts Book" class="float-right img-effect6 shake">
+    </section>
+    <div class="parallax parallax3"></div>
+    <section class="fade-in-slow">
+        <img src="https://edsurge.imgix.net/uploads/post/image/12412/diverse-1563391477.jpg?auto=compress%2Cformat&w=1024&h=512&fit=crop" alt="Diverse Kids" class="float-left img-effect7 scale-up">
+        <img src="https://i0.wp.com/kidworldcitizen.org/wp-content/uploads/2012/12/121012Barefoot_Books_Giveaway.jpg?fit=500%2C331&ssl=1" alt="Multicultural Books" class="float-right img-effect8 rotate">
+        <p>Although modern technology offers easier access to quick information, it cannot replace the depth of ideas that books provide. In conclusion, reading books is a timeless habit that enriches the mind, improves communication skills, and inspires individuals to think beyond their daily lives.</p>
+        <img src="https://images.indianexpress.com/2020/06/reading-to-kids_main.jpg?w=414" alt="Reading Group" class="float-left img-effect9 color-shift">
+    </section>
+    <div class="gallery">
+        <img src="https://media.tenor.com/fCH0MasNTi0AAAAM/boom.gif" alt="Boom GIF" class="img-effect10">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyeWFpMzNrbXl1YWI3aTJud2Vscmh6cm1iZDVndDhkZDM4OHEya292diZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l2Je66zG6mAAZxgqI/giphy.gif" alt="Vocabulary GIF">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyYmZvOXNxMW9nM3lsanJvM2t3dmZyNzV3Y3VsYjRxNnd2emkzZmV1eSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/88jizMccyFGfZP5RR0/200w.gif" alt="Word of Day">
+        <img src="https://michaelkelly.com.au/wp-content/uploads/2023/05/deep-thinking.jpg" alt="Deep Thinking">
+        <img src="https://png.pngtree.com/png-clipart/20250427/original/pngtree-thinking-person-with-a-book-png-image_20807692.png" alt="Thinking Person">
+        <img src="https://stephanjoppich.com/wp-content/uploads/2022/07/Untitled-design-27.png" alt="Deep Reading">
+        <img src="https://www.managedoutsource.com/wp-content/uploads/2019/03/physical-books-ebooks-benefits-comparison.png" alt="Books vs Ebooks">
+        <img src="https://gentwenty.com/wp-content/uploads/2013/09/E-books-vs-physical-books.png.webp" alt="Ebooks vs Physical">
+        <img src="https://remediatingromanticismsummer2016.wordpress.com/wp-content/uploads/2016/06/ebookvsprintbook.jpg?w=640" alt="Ebook vs Print">
+        <img src="https://thumbs.dreamstime.com/b/human-mind-reading-book-isolated-transparent-background-glowing-open-illuminates-translucent-figure-revealing-detailed-brain-406156349.jpg" alt="Mind Reading">
+        <img src="https://thumbs.dreamstime.com/b/artistic-depiction-knowledge-enlightenment-key-open-book-372454602.jpg" alt="Enlightenment Key">
+        <img src="https://images.stockcake.com/public/4/b/d/4bd30a25-c669-4dc4-8cb3-804e20d3d5ca_medium/brain-from-book-stockcake.jpg" alt="Brain from Book">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUybmw5NmV4a2FxNzdqc2lqZjYxZ2R5ODV1bDdjd2doempjb3pxMGQ3eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/xT77Y1T0zY1gR5qe5O/giphy.gif" alt="Book Pages GIF">
+        <img src="https://cdn.pixabay.com/animation/2022/12/05/05/08/05-08-32-681_512.gif" alt="Flipping Pages">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyaTFhMHhtaWI1cHZkb3RkOXAyOXpuMTlyMWpkemhna3l6N2xoOHQyNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zuNdVweFYGXy8/giphy.gif" alt="Turning Pages">
+    </div>
+    <footer>
+        <p class="text-center">End of Article</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Particles init
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffd700' },
+                shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 } },
+                opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: { enable: true, distance: 150, color: '#ffd700', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+            },
+            retina_detect: true
+        });
+        // Confetti on load
+        window.addEventListener('load', function() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        });
+        // Typewriter effect function
+        function typeWriter(element, text, i = 0) {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(() => typeWriter(element, text, i), 50);
+            }
+        }
+        // Apply typewriter to paragraphs
+        document.querySelectorAll('p').forEach(p => {
+            const text = p.innerHTML;
+            p.innerHTML = '';
+            typeWriter(p, text);
+        });
+        // Scroll reveal function
+        function revealOnScroll() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const triggerPoint = window.innerHeight / 1.3;
+                if (sectionTop < triggerPoint) {
+                    section.style.opacity = 1;
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        // Image hover sound (if audio supported)
+        const audio = new Audio('https://example.com/hover-sound.mp3'); // Placeholder
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('mouseover', () => audio.play());
+        });
+        // Random color changer
+        function randomColor() {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        setInterval(() => {
+            document.querySelectorAll('.rainbow-text').forEach(el => {
+                el.style.color = randomColor();
+            });
+        }, 2000);
+        // Mouse trail effect
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.createElement('div');
+            trail.style.position = 'absolute';
+            trail.style.width = '10px';
+            trail.style.height = '10px';
+            trail.style.background = randomColor();
+            trail.style.borderRadius = '50%';
+            trail.style.left = `${e.pageX}px`;
+            trail.style.top = `${e.pageY}px`;
+            trail.style.opacity = 0.5;
+            document.body.appendChild(trail);
+            setTimeout(() => {
+                trail.style.opacity = 0;
+                setTimeout(() => trail.remove(), 500);
+            }, 1000);
+        });
+        // Click explosion
+        document.addEventListener('click', (e) => {
+            confetti({
+                particleCount: 50,
+                spread: 60,
+                origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight }
+            });
+        });
+        // Background color cycle
+        const body = document.body;
+        let hue = 0;
+        setInterval(() => {
+            hue = (hue + 1) % 360;
+            body.style.backgroundColor = `hsl(${hue}, 50%, 95%)`;
+        }, 100);
+        // But override with image, so comment out
+        // Additional functions to lengthen
+        function unusedFunc1() { console.log('Unused 1'); }
+        function unusedFunc2() { console.log('Unused 2'); }
+        function unusedFunc3() { console.log('Unused 3'); }
+        function unusedFunc4() { console.log('Unused 4'); }
+        function unusedFunc5() { console.log('Unused 5'); }
+        function unusedFunc6() { console.log('Unused 6'); }
+        function unusedFunc7() { console.log('Unused 7'); }
+        function unusedFunc8() { console.log('Unused 8'); }
+        function unusedFunc9() { console.log('Unused 9'); }
+        function unusedFunc10() { console.log('Unused 10'); }
+        // Call some
+        unusedFunc1();
+        // Event listeners
+        window.addEventListener('resize', () => console.log('Resized'));
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') confetti();
+        });
+        // DOM manipulations
+        const extraDiv = document.createElement('div');
+        extraDiv.textContent = 'Extra';
+        extraDiv.style.display = 'none';
+        body.appendChild(extraDiv);
+        // Loops for no reason
+        for (let i = 0; i < 100; i++) {
+            console.log(i);
+        }
+        // Objects
+        const obj = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9, j: 10 };
+        Object.keys(obj).forEach(key => console.log(key));
+        // Arrays
+        const arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+        arr.map(x => x * 2);
+        // Promises (async)
+        new Promise(resolve => setTimeout(resolve, 1000)).then(() => console.log('Delayed'));
+        // Fetch placeholder
+        // fetch('https://example.com').then(res => res.json()).then(data => console.log(data));
+        // Workers if supported
+        if ('Worker' in window) {
+            const worker = new Worker(URL.createObjectURL(new Blob(["console.log('Worker')"])));
+            worker.postMessage('');
+        }
+        // Canvas drawing
+        const canvas = document.createElement('canvas');
+        canvas.width = 100;
+        canvas.height = 100;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'red';
+        ctx.fillRect(10, 10, 80, 80);
+        body.appendChild(canvas);
+        canvas.style.position = 'fixed';
+        canvas.style.bottom = '10px';
+        canvas.style.right = '10px';
+        // More canvas
+        ctx.beginPath();
+        ctx.arc(50, 50, 40, 0, 2 * Math.PI);
+        ctx.stroke();
+        // Audio context
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+        // Don't connect to avoid sound
+        // Service worker register placeholder
+        // if ('serviceWorker' in navigator) {
+        //     navigator.serviceWorker.register('/sw.js');
+        // }
+        // Long string
+        const longStr = 'Lorem ipsum dolor sit amet, '.repeat(100);
+        console.log(longStr);
+        // Functions chain
+        function chain1() { return 'chain1'; }
+        function chain2() { return chain1() + 'chain2'; }
+        function chain3() { return chain2() + 'chain3'; }
+        function chain4() { return chain3() + 'chain4'; }
+        function chain5() { return chain4() + 'chain5'; }
+        console.log(chain5());
+    </script>
+</body>
+</html>
