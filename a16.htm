@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* In-depth custom styling to fulfill the "heavy CSS" and "high graphics" request */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark gray background */
+            background-image: 
+                radial-gradient(at 27% 37%, hsla(215, 98%, 43%, 0.1) 0px, transparent 50%),
+                radial-gradient(at 97% 21%, hsla(125, 98%, 43%, 0.1) 0px, transparent 50%),
+                radial-gradient(at 82% 99%, hsla(340, 98%, 43%, 0.1) 0px, transparent 50%),
+                radial-gradient(at 33% 50%, hsla(340, 98%, 43%, 0.1) 0px, transparent 50%);
+            color: #F3F4F6; /* Light gray text */
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Styling for the main content container */
+        .content-wrapper {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+        }
+
+        /* Card styles for each vocabulary word */
+        .vocab-card {
+            background-color: #1F2937; /* Darker card background */
+            border: 1px solid #374151; /* Subtle border */
+            border-radius: 1.5rem; /* More rounded corners */
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden; /* Hide overflowing pseudo-elements */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hover effect for the cards */
+        .vocab-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 40px rgba(79, 70, 229, 0.5); /* Glowing effect on hover */
+            border-color: rgba(79, 70, 229, 0.7);
+        }
+        
+        /* Pseudo-element for a subtle background glow */
+        .vocab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(79, 70, 229, 0.1) 0%, rgba(79, 70, 229, 0) 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .vocab-card:hover::before {
+            opacity: 1;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 2; /* Ensure content is above the pseudo-element */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Styling for the vocabulary word itself */
+        .vocab-word {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem; /* Larger font size */
+            font-weight: 700;
+            color: #E5E7EB;
+            margin-bottom: 0.5rem;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+        }
+
+        /* Styling for the example sentence */
+        .vocab-sentence {
+            font-size: 1.125rem; /* Slightly larger sentence text */
+            line-height: 1.75;
+            color: #9CA3AF; /* Muted color for the sentence */
+            max-width: 800px; /* Ensure sentence readability */
+            font-style: italic;
+        }
+        
+        /* Styling for the image within the card */
+        .vocab-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 1rem; /* Rounded corners for the image */
+            margin-top: 2rem;
+            border: 3px solid #4B5563;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            object-fit: cover;
+        }
+        
+        /* A simple animation for the header text */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header-title {
+            animation: fadeInDown 1s ease-out;
+        }
+
+        /* Adding a decorative line */
+        .separator {
+            height: 2px;
+            width: 100px;
+            background: linear-gradient(90deg, #4F46E5, #9333EA);
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 1px;
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-bold font-playfair header-title tracking-tight">Vocabulary Showcase</h1>
+            <p class="mt-4 text-lg text-gray-400">A Curated Collection of Words and Sentences</p>
+        </header>
+
+        <!-- Main section to hold the vocabulary cards -->
+        <main id="vocab-list">
+
+            <!-- Card 1: Abate -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Abate</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">i take medicine to abate my back pain</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=Pain+Relief&font=playfair" alt="Illustration for Abate" class="vocab-image">
+                </div>
+            </div>
+
+            <!-- Card 2: Abdicate -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Abdicate</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">the CEO abdicated due to his old age</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=Leaving+the+Throne&font=playfair" alt="Illustration for Abdicate" class="vocab-image">
+                </div>
+            </div>
+
+            <!-- Card 3: Abhor -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Abhor</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">i abhor the face of my friend</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=Intense+Dislike&font=playfair" alt="Illustration for Abhor" class="vocab-image">
+                </div>
+            </div>
+            
+            <!-- Card 4: Abolish -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Abolish</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">we should abolish exams</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=End+a+System&font=playfair" alt="Illustration for Abolish" class="vocab-image">
+                </div>
+            </div>
+
+            <!-- Card 5: Abortive -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Abortive</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">the governments attempt to repair the road was abortive</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=Failed+Attempt&font=playfair" alt="Illustration for Abortive" class="vocab-image">
+                </div>
+            </div>
+            
+            <!-- Card 6: Abridge -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Abridge</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">the speaker abridged his speak</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=Shorten&font=playfair" alt="Illustration for Abridge" class="vocab-image">
+                </div>
+            </div>
+            
+            <!-- Card 7: Abrogate -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Abrogate</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">Bangladesh abrogated a lot of treaties with foreign nations</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=Repeal+a+Law&font=playfair" alt="Illustration for Abrogate" class="vocab-image">
+                </div>
+            </div>
+            
+            <!-- Card 8: Absurd -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Absurd</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">chat GPT gave me an absurd answerer</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=Nonsensical&font=playfair" alt="Illustration for Absurd" class="vocab-image">
+                </div>
+            </div>
+            
+            <!-- Card 9: Accumulate -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Accumulate</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">i accumulated a lot of comics books.</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=Gather+Together&font=playfair" alt="Illustration for Accumulate" class="vocab-image">
+                </div>
+            </div>
+            
+            <!-- Card 10: Acme -->
+            <div class="vocab-card">
+                <div class="card-content">
+                    <h2 class="vocab-word">Acme</h2>
+                    <div class="separator"></div>
+                    <p class="vocab-sentence">getting a GPA of 5.0 is the acme of my educational background</p>
+                    <img src="https://placehold.co/600x400/1F2937/E5E7EB?text=The+Peak&font=playfair" alt="Illustration for Acme" class="vocab-image">
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="text-center mt-16 pb-8">
+            <p class="text-gray-500">Designed to be visually engaging.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
