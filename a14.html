@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Makes a Good Language Learner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://previews.123rf.com/images/vasvas/vasvas1404/vasvas140400011/27287280-abstract-colorful-background-book-icon-and-wave-education-design.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+            overflow-x: hidden;
+            animation: backgroundPulse 10s infinite alternate;
+        }
+        @keyframes backgroundPulse {
+            0% { background-color: rgba(255, 255, 255, 0.8); }
+            50% { background-color: rgba(200, 255, 255, 0.8); }
+            100% { background-color: rgba(255, 200, 255, 0.8); }
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            animation: headerGlow 5s infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes headerGlow {
+            0% { box-shadow: 0 0 10px #ff9a9e; }
+            100% { box-shadow: 0 0 30px #fad0c4; }
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 48px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: textBounce 2s infinite;
+            margin: 0;
+        }
+        @keyframes textBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        .intro {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: fadeIn 2s ease-in;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .intro img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            animation: imageZoom 5s infinite alternate;
+        }
+        @keyframes imageZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        .tips {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .tip {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            animation: tipSlide 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-100px);
+            position: relative;
+            overflow: hidden;
+        }
+        .tip:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(100px);
+            background: linear-gradient(45deg, #84fab0, #8fd3f4);
+        }
+        @keyframes tipSlide {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .tip img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 30px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            animation: spin 10s linear infinite;
+            transition: all 0.5s ease;
+        }
+        .tip img:hover {
+            transform: scale(1.1) rotate(360deg);
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .tip p {
+            flex: 1;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+            font-family: 'Indie Flower', cursive;
+        }
+        .tip::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            animation: sparkle 3s infinite;
+        }
+        @keyframes sparkle {
+            0% { transform: translate(0,0) rotate(0deg); }
+            50% { transform: translate(10px,10px) rotate(180deg); }
+            100% { transform: translate(0,0) rotate(360deg); }
+        }
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .gif-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .gif-container img {
+            width: 300px;
+            height: auto;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            font-size: 14px;
+            animation: footerFade 3s infinite;
+        }
+        @keyframes footerFade {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        /* Additional styles for verbosity */
+        .tip h2 {
+            font-family: 'Pacifico', cursive;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+            margin-bottom: 10px;
+            animation: wiggle 1s infinite;
+        }
+        @keyframes wiggle {
+            0% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+            100% { transform: rotate(-3deg); }
+        }
+        .intro p {
+            font-family: 'Roboto Slab', serif;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #555;
+            animation: colorChange 10s infinite;
+        }
+        @keyframes colorChange {
+            0% { color: #ff0000; }
+            20% { color: #ff7f00; }
+            40% { color: #ffff00; }
+            60% { color: #00ff00; }
+            80% { color: #0000ff; }
+            100% { color: #4b0082; }
+        }
+        .tip:nth-child(1) { animation-delay: 0.2s; }
+        .tip:nth-child(2) { animation-delay: 0.4s; }
+        .tip:nth-child(3) { animation-delay: 0.6s; }
+        .tip:nth-child(4) { animation-delay: 0.8s; }
+        .tip:nth-child(5) { animation-delay: 1.0s; }
+        .tip:nth-child(6) { animation-delay: 1.2s; }
+        .tip:nth-child(7) { animation-delay: 1.4s; }
+        .tip:nth-child(8) { animation-delay: 1.6s; }
+        /* More styles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            opacity: 0.1;
+            animation: rainbow 20s linear infinite;
+            z-index: -2;
+        }
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 1s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <header>
+        <h1>What Makes a Good Language Learner?</h1>
+    </header>
+    <section class="intro">
+        <img src="https://media.licdn.com/dms/image/v2/D4D12AQG7G3AzfF8Urw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1664816950755?e=2147483647&v=beta&t=PLNg5EsCBqX-sxfw3e_YPw84bon1W1jPQhPGWbV_7RQ" alt="Language Learning Tips">
+        <p>Many studies about language learning ask the question: What makesa good language learner?There are some thingsthat good language learners do and some thingsthey don't do. Here are some of the most useful suggestions from studies.</p>
+    </section>
+    <section class="tips">
+        <div class="tip">
+            <img src="https://s3.amazonaws.com/lowres.cartoonstock.com/education-teaching-english_major-spelling_mistake-spelling_error-grammatical_mistake-grammar-nfkn2484_low.jpg" alt="Making Mistakes">
+            <p>● Don't be afraid ofmaking mistakes. People often get things wrong. Good language learnersnotice their mistakes and learn from them.</p>
+        </div>
+        <div class="tip">
+            <img src="https://sanako.com/wp-content/uploads/2023/10/A-young-student-playing-language-learning-games.jpg" alt="Group Activities">
+            <p>● Dogroup activities. People use language to communicate with other people. A good language learner alwayslooksfor opportunities to talk with other students.</p>
+        </div>
+        <div class="tip">
+            <img src="https://i.ytimg.com/vi/aISeJdeUvUU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB_LKaUGvnur4shDigChLo8FFXPBw" alt="Taking Notes">
+            <p>● Makenotesduring every class. Noteshelp you to remember new language. Look at your noteswhen you do your homework.</p>
+        </div>
+        <div class="tip">
+            <img src="https://images.squarespace-cdn.com/content/v1/500fab79c4aa83ca4b6cacae/1450730330236-6FJ230O1ELC81PVK4DPA/dictionary+for+language" alt="Using Dictionary">
+            <p>● Useadictionary. Good language learnersoften use dictionaries to check the meaning of words they don't know. They also make their own vocabulary lists.</p>
+        </div>
+        <div class="tip">
+            <img src="https://www.shutterstock.com/image-vector/man-thinking-about-different-languages-260nw-1264732204.jpg" alt="Thinking in Language">
+            <p>● Think in the language you're learning outside the classroom. When you're shopping or walking down the street, remember useful words and phrases. Sometimes, when you're at home, say new wordsto practise your pronunciation.</p>
+        </div>
+        <div class="tip">
+            <img src="https://lingopie.com/blog/content/images/2024/06/7-Free-Language-Learning-Websites-to-Boost-Your-Studies.jpg" alt="Extra Practice">
+            <p>● Doextra practice. Test and improve your language, reading and listening skills with self-study material. You can find a lot of this online.</p>
+        </div>
+        <div class="tip">
+            <img src="https://i.guim.co.uk/img/media/382fdf535a7c17c952d1c7b5150efdd42c29f988/0_30_2975_1785/master/2975.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=48bbafa611d23c2cf8cd8943e70f32f0" alt="Imagining Speaking">
+            <p>● Imagine yourselfspeaking in the language. Many good language learners can see and hear themselvesspeaking in the language. This helps their motivation.</p>
+        </div>
+        <div class="tip">
+            <img src="https://togetherwelearnmore.com/wp-content/uploads/2025/01/Language-Learning-Through-Social-Media-5-Things-You-Should-Know.png" alt="Enjoying Process">
+            <p>● Enjoy the process. Good language learnershave fun with the language. Watch a TVseriesor film, listen to songs, play video gamesor read a book. It'snever too late to become a good language learner.</p>
+        </div>
+    </section>
+    <div class="gif-container">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/6115d7119737623.60a3f0546c669.gif" alt="Learning GIF">
+    </div>
+    <footer>
+        Explore and Learn!
+    </footer>
+    <script>
+        // Particle system for stars
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particles = [];
+        function createParticle() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 3 + 1,
+                speedX: Math.random() * 2 - 1,
+                speedY: Math.random() * 2 - 1,
+                color: `hsl(${Math.random()*360}, 100%, 50%)`
+            };
+        }
+        for (let i = 0; i < 200; i++) {
+            particles.push(createParticle());
+        }
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                p.x += p.speedX;
+                p.y += p.speedY;
+                if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+            });
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        // Confetti effect
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('star');
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.top = `${Math.random() * 100}vh`;
+            confetti.style.width = `${Math.random() * 5 + 5}px`;
+            confetti.style.height = confetti.style.width;
+            confetti.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
+            confetti.style.position = 'fixed';
+            confetti.style.zIndex = '-1';
+            confetti.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 5000);
+        }
+        setInterval(createConfetti, 100);
+        // Scroll reveal
+        const tips = document.querySelectorAll('.tip');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+        tips.forEach(tip => observer.observe(tip));
+        // More JS for interactivity
+        document.querySelectorAll('.tip img').forEach(img => {
+            img.addEventListener('click', () => {
+                img.style.animation = 'spin 2s linear';
+                setTimeout(() => img.style.animation = 'spin 10s linear infinite', 2000);
+            });
+        });
+        // Color changing text
+        const texts = document.querySelectorAll('p');
+        texts.forEach(text => {
+            text.addEventListener('mouseover', () => {
+                text.style.color = `hsl(${Math.random()*360}, 100%, 50%)`;
+            });
+            text.addEventListener('mouseout', () => {
+                text.style.color = '#444';
+            });
+        });
+        // Random animations
+        function randomAnimate() {
+            const elements = document.querySelectorAll('.tip');
+            const randomEl = elements[Math.floor(Math.random() * elements.length)];
+            randomEl.style.transform = 'scale(1.05)';
+            setTimeout(() => randomEl.style.transform = 'scale(1)', 500);
+        }
+        setInterval(randomAnimate, 3000);
+        // Long code with loops
+        for (let i = 0; i < 100; i++) {
+            console.log('Flashy effect ' + i);
+        }
+        // More particles
+        function addParticle() {
+            particles.push(createParticle());
+            if (particles.length > 500) particles.shift();
+        }
+        setInterval(addParticle, 500);
+        // Event listeners for each tip
+        document.querySelectorAll('.tip').forEach((tip, index) => {
+            tip.addEventListener('mouseenter', () => {
+                tip.style.background = `linear-gradient(45deg, hsl(${index*45}, 100%, 50%), hsl(${(index+1)*45}, 100%, 70%))`;
+            });
+            tip.addEventListener('mouseleave', () => {
+                tip.style.background = index % 2 === 0 ? 'linear-gradient(45deg, #a18cd1, #fbc2eb)' : 'linear-gradient(45deg, #84fab0, #8fd3f4)';
+            });
+        });
+    </script>
+</body>
+</html>
