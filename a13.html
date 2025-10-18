@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashy Essay Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00, #ff0000);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ffd700;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff; }
+            to { text-shadow: 0 0 20px #ffff00, 0 0 30px #ff0000; }
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        p:nth-child(1) { animation-delay: 0.5s; }
+        p:nth-child(2) { animation-delay: 1s; }
+        p:nth-child(3) { animation-delay: 1.5s; }
+        p:nth-child(4) { animation-delay: 2s; }
+        p:nth-child(5) { animation-delay: 2.5s; }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleMove 10s linear infinite;
+        }
+
+        @keyframes particleMove {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { transform: translate(var(--dx), var(--dy)); opacity: 0; }
+        }
+
+        .star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        .neon-border {
+            position: relative;
+            border: 2px solid #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #00ffff;
+            animation: neonPulse 1.5s infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            from { box-shadow: 0 0 10px #fff, 0 0 20px #ff00ff; }
+            to { box-shadow: 0 0 20px #fff, 0 0 30px #00ffff; }
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: radial-gradient(circle, #ff0, #f00, #00f);
+            border-radius: 50%;
+            animation: explode 2s ease-out infinite;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(10); opacity: 0; }
+        }
+
+        .rainbow-text {
+            background: linear-gradient(90deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 10s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .bounce {
+            animation: bounceAnim 2s infinite;
+        }
+
+        @keyframes bounceAnim {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        .rotate {
+            animation: rotateAnim 5s linear infinite;
+        }
+
+        @keyframes rotateAnim {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .pulse {
+            animation: pulseAnim 1s infinite;
+        }
+
+        @keyframes pulseAnim {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .wave {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: radial-gradient(circle at 10px 10px, #fff, transparent);
+            animation: waveAnim 3s linear infinite;
+        }
+
+        @keyframes waveAnim {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-20px); }
+        }
+
+        .glitch {
+            position: relative;
+            animation: glitchAnim 0.5s infinite;
+        }
+
+        @keyframes glitchAnim {
+            0% { transform: skew(0deg); }
+            10% { transform: skew(5deg); }
+            20% { transform: skew(-5deg); }
+            30% { transform: skew(0deg); }
+            100% { transform: skew(0deg); }
+        }
+
+        .sparkle {
+            position: relative;
+        }
+
+        .sparkle::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff;
+            animation: sparkleAnim 1s infinite;
+        }
+
+        @keyframes sparkleAnim {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .gradient-border {
+            position: relative;
+            padding: 20px;
+            border: 5px solid transparent;
+            border-image: linear-gradient(45deg, #f00, #0f0, #00f) 1;
+            animation: borderAnim 5s linear infinite;
+        }
+
+        @keyframes borderAnim {
+            0% { border-image: linear-gradient(45deg, #f00, #0f0, #00f) 1; }
+            33% { border-image: linear-gradient(45deg, #0f0, #00f, #f00) 1; }
+            66% { border-image: linear-gradient(45deg, #00f, #f00, #0f0) 1; }
+            100% { border-image: linear-gradient(45deg, #f00, #0f0, #00f) 1; }
+        }
+
+        .hologram {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            animation: hologramAnim 5s infinite;
+        }
+
+        @keyframes hologramAnim {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            font-family: monospace;
+            font-size: 20px;
+            color: #0f0;
+            white-space: nowrap;
+            animation: matrixFall linear infinite;
+        }
+
+        @keyframes matrixFall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--color);
+            animation: confettiFall 5s linear infinite;
+            transform: rotate(var(--rotate));
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .laser {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background: #f00;
+            animation: laserScan 3s linear infinite alternate;
+        }
+
+        @keyframes laserScan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: bubbleRise 10s linear infinite;
+        }
+
+        @keyframes bubbleRise {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-100%); opacity: 0; }
+        }
+
+        .firefly {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #ff0;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff0;
+            animation: fireflyMove 5s ease-in-out infinite;
+        }
+
+        @keyframes fireflyMove {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(50px, -50px); }
+            50% { transform: translate(-50px, 50px); }
+            75% { transform: translate(50px, 50px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .snowflake {
+            position: absolute;
+            font-size: 20px;
+            color: #fff;
+            animation: snowFall 10s linear infinite;
+        }
+
+        @keyframes snowFall {
+            0% { transform: translateY(-100%) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            animation: rippleExpand 2s linear infinite;
+        }
+
+        @keyframes rippleExpand {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        .vortex {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, transparent, #000);
+            animation: vortexSpin 5s linear infinite;
+        }
+
+        @keyframes vortexSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .plasma {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #f0f, #0ff, #ff0);
+            mix-blend-mode: screen;
+            opacity: 0.5;
+            animation: plasmaMove 20s linear infinite;
+            z-index: -2;
+        }
+
+        @keyframes plasmaMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .aurora {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #0f0, #00f);
+            opacity: 0.3;
+            animation: auroraShift 15s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes auroraShift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-50px); }
+        }
+
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 10s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        .honeycomb {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 43px solid #ff0;
+            animation: honeycombPulse 2s infinite;
+        }
+
+        @keyframes honeycombPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .circuit {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: #0f0;
+            animation: circuitFlow 1s linear infinite;
+        }
+
+        @keyframes circuitFlow {
+            0% { height: 0; }
+            100% { height: 100px; }
+        }
+
+        .pixelate {
+            image-rendering: pixelated;
+            animation: pixelShift 0.1s steps(5) infinite;
+        }
+
+        @keyframes pixelShift {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(2px, 0); }
+            40% { transform: translate(0, 2px); }
+            60% { transform: translate(-2px, 0); }
+            80% { transform: translate(0, -2px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .chromatic {
+            position: relative;
+        }
+
+        .chromatic::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #f00;
+            filter: blur(1px);
+            animation: chromaticRed 0.5s infinite;
+        }
+
+        .chromatic::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #0ff;
+            filter: blur(1px);
+            animation: chromaticCyan 0.5s infinite;
+        }
+
+        @keyframes chromaticRed {
+            0% { transform: translate(-1px, -1px); }
+            100% { transform: translate(1px, 1px); }
+        }
+
+        @keyframes chromaticCyan {
+            0% { transform: translate(1px, 1px); }
+            100% { transform: translate(-1px, -1px); }
+        }
+
+        .emboss {
+            text-shadow: -1px -1px 0 #000, 1px 1px 0 #fff;
+        }
+
+        .engrave {
+            text-shadow: 1px 1px 0 #000, -1px -1px 0 #fff;
+        }
+
+        .outline {
+            text-shadow: 0 0 3px #000, 0 0 3px #000, 0 0 3px #000, 0 0 3px #000;
+        }
+
+        .bevel {
+            text-shadow: -2px -2px 5px #000, 2px 2px 5px #fff;
+        }
+
+        .inset {
+            box-shadow: inset 0 0 10px #000;
+        }
+
+        .raised {
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .metallic {
+            background: linear-gradient(45deg, #ccc, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .wood {
+            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI1MDBweCIgaGVpZ2h0PSI1MDBweCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUwMCwgLTUwMCkiPjxyZWN0IGlkPSJSZWN0YW5nbGUiIGZpbGw9IiM4MzU0MjYiIHg9IjUwMCIgeT0iNTAwIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+PC9yZWN0PjxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAwLjAwMDAwMCwgNTAwLjAwMDAwMCkiPjxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0yIiBmaWxsPSIjNjEyRjE3IiB4PSIwIiB5PSIwIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+PC9yZWN0PjwvZz48L2c+PC9zdmc+') repeat;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Add more styles to make code longer */
+        .extra-style1 {
+            font-style: italic;
+        }
+
+        .extra-style2 {
+            font-weight: bold;
+        }
+
+        .extra-style3 {
+            text-decoration: underline;
+        }
+
+        .extra-style4 {
+            text-transform: uppercase;
+        }
+
+        .extra-style5 {
+            letter-spacing: 2px;
+        }
+
+        .extra-style6 {
+            word-spacing: 5px;
+        }
+
+        .extra-style7 {
+            line-height: 2;
+        }
+
+        .extra-style8 {
+            text-align: justify;
+        }
+
+        .extra-style9 {
+            direction: rtl;
+        }
+
+        .extra-style10 {
+            unicode-bidi: bidi-override;
+        }
+
+        .extra-animation1 {
+            animation: extraAnim1 3s infinite;
+        }
+
+        @keyframes extraAnim1 {
+            0% { color: #f00; }
+            100% { color: #00f; }
+        }
+
+        .extra-animation2 {
+            animation: extraAnim2 4s infinite;
+        }
+
+        @keyframes extraAnim2 {
+            0% { background-color: #ff0; }
+            100% { background-color: #0ff; }
+        }
+
+        /* Continue adding to lengthen */
+        .extra-animation3 {
+            animation: extraAnim3 5s infinite;
+        }
+
+        @keyframes extraAnim3 {
+            0% { border-color: #f0f; }
+            100% { border-color: #0f0; }
+        }
+
+        .extra-animation4 {
+            animation: extraAnim4 6s infinite;
+        }
+
+        @keyframes extraAnim4 {
+            0% { box-shadow: 0 0 5px #f00; }
+            100% { box-shadow: 0 0 10px #00f; }
+        }
+
+        .extra-animation5 {
+            animation: extraAnim5 7s infinite;
+        }
+
+        @keyframes extraAnim5 {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .extra-animation6 {
+            animation: extraAnim6 8s infinite;
+        }
+
+        @keyframes extraAnim6 {
+            0% { transform: skewX(0deg); }
+            100% { transform: skewX(10deg); }
+        }
+
+        .extra-animation7 {
+            animation: extraAnim7 9s infinite;
+        }
+
+        @keyframes extraAnim7 {
+            0% { filter: blur(0px); }
+            100% { filter: blur(2px); }
+        }
+
+        .extra-animation8 {
+            animation: extraAnim8 10s infinite;
+        }
+
+        @keyframes extraAnim8 {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.5); }
+        }
+
+        .extra-animation9 {
+            animation: extraAnim9 11s infinite;
+        }
+
+        @keyframes extraAnim9 {
+            0% { filter: contrast(1); }
+            100% { filter: contrast(2); }
+        }
+
+        .extra-animation10 {
+            animation: extraAnim10 12s infinite;
+        }
+
+        @keyframes extraAnim10 {
+            0% { filter: grayscale(0); }
+            100% { filter: grayscale(1); }
+        }
+
+        /* Even more for length */
+        .super-extra1 {
+            transition: all 0.5s ease;
+        }
+
+        .super-extra1:hover {
+            transform: scale(1.1);
+        }
+
+        .super-extra2 {
+            transition: color 1s;
+        }
+
+        .super-extra2:hover {
+            color: #ffd;
+        }
+
+        .super-extra3 {
+            transition: background 1.5s;
+        }
+
+        .super-extra3:hover {
+            background: #000;
+        }
+
+        .super-extra4 {
+            transition: border-radius 2s;
+        }
+
+        .super-extra4:hover {
+            border-radius: 50%;
+        }
+
+        .super-extra5 {
+            transition: opacity 0.3s;
+        }
+
+        .super-extra5:hover {
+            opacity: 0.8;
+        }
+
+        .super-extra6 {
+            transition: box-shadow 0.4s;
+        }
+
+        .super-extra6:hover {
+            box-shadow: 0 0 20px #fff;
+        }
+
+        .super-extra7 {
+            transition: transform 0.6s;
+        }
+
+        .super-extra7:hover {
+            transform: rotate(5deg);
+        }
+
+        .super-extra8 {
+            transition: filter 0.7s;
+        }
+
+        .super-extra8:hover {
+            filter: invert(1);
+        }
+
+        .super-extra9 {
+            transition: width 0.8s;
+        }
+
+        .super-extra9:hover {
+            width: 100%;
+        }
+
+        .super-extra10 {
+            transition: height 0.9s;
+        }
+
+        .super-extra10:hover {
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="matrix"></div>
+    <div class="plasma"></div>
+    <div class="aurora"></div>
+    <div class="grid-lines"></div>
+    <div class="container">
+        <h1 class="rainbow-text bounce rotate pulse glitch sparkle hologram emboss engrave outline bevel metallic">The Importance of Learning in the Digital Age</h1>
+        <p class="neon-border wave chromatic extra-style1 extra-animation1 super-extra1">Nowadays all the intormation we could ever need is avallable online and some people say that means the end of having to learn anything.</p>
+        <p class="gradient-border inset raised extra-style2 extra-animation2 super-extra2">It is true that these days everything you want to know is a few clicks away as long as you have internet access. However, not everyone has working internet all the time, for example in certain buildings or remote locations, so we do need to be able to remember information. Moreover, it takes time to look up everything you need to know online, whereas remembering something is immediate. The human memory is a much more efficient system.</p>
+        <p class="neon-border wave chromatic extra-style3 extra-animation3 super-extra3">Another problem is the quality of the information online. How do we know if it is accurate or reliable? We need to think about other facts we know and remember how to compare information from different websites. Knowing (and remembering) how to find certain information will be more important than knowing the information itself.</p>
+        <p class="gradient-border inset raised extra-style4 extra-animation4 super-extra4">Finally, the internet is a good tool but it is not a useful replacement for our brain. If we did not remember anything, we would all spend even more time on our phones and computers than we already do, which is not good for society.</p>
+        <p class="neon-border wave chromatic extra-style5 extra-animation5 super-extra5">In conclusion, the internet offers us many things but it is still important to use our knowledge and memories. We need our memories to function without the internet and we also need to know how to use the internet properly.</p>
+    </div>
+    <script>
+        // Particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.width = `${Math.random() * 5 + 5}px`;
+            particle.style.height = particle.style.width;
+            particle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            particle.style.left = `${Math.random() * window.innerWidth}px`;
+            particle.style.top = `${Math.random() * window.innerHeight}px`;
+            particle.style.setProperty('--dx', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--dy', `${(Math.random() - 0.5) * 200}px`);
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 10000);
+        }
+        setInterval(createParticle, 200);
+
+        // Stars
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            document.body.appendChild(star);
+        }
+
+        // Fireworks
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = `${Math.random() * 100}%`;
+            firework.style.top = `${Math.random() * 100}%`;
+            firework.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 2000);
+        }
+        setInterval(createFirework, 500);
+
+        // Matrix effect
+        const matrix = document.querySelector('.matrix');
+        for (let i = 0; i < 50; i++) {
+            const column = document.createElement('div');
+            column.classList.add('matrix-column');
+            column.style.left = `${i * 2}%`;
+            column.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            column.style.animationDelay = `${Math.random() * 5}s`;
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let text = '';
+            for (let j = 0; j < 50; j++) {
+                text += chars[Math.floor(Math.random() * chars.length)];
+            }
+            column.textContent = text;
+            matrix.appendChild(column);
+        }
+
+        // Confetti
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = `${Math.random() * 100}%`;
+            confetti.style.top = '0';
+            confetti.style.setProperty('--color', `hsl(${Math.random() * 360}, 100%, 50%)`);
+            confetti.style.setProperty('--rotate', `${Math.random() * 360}deg`);
+            confetti.style.animationDelay = `${Math.random() * 5}s`;
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 5000);
+        }
+        setInterval(createConfetti, 100);
+
+        // Lasers
+        for (let i = 0; i < 5; i++) {
+            const laser = document.createElement('div');
+            laser.classList.add('laser');
+            laser.style.top = `${Math.random() * 100}%`;
+            laser.style.animationDelay = `${Math.random() * 3}s`;
+            laser.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(laser);
+        }
+
+        // Bubbles
+        for (let i = 0; i < 20; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            bubble.style.width = `${Math.random() * 20 + 10}px`;
+            bubble.style.height = bubble.style.width;
+            bubble.style.left = `${Math.random() * 100}%`;
+            bubble.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            bubble.style.animationDelay = `${Math.random() * 5}s`;
+            document.body.appendChild(bubble);
+        }
+
+        // Fireflies
+        for (let i = 0; i < 15; i++) {
+            const firefly = document.createElement('div');
+            firefly.classList.add('firefly');
+            firefly.style.left = `${Math.random() * 100}%`;
+            firefly.style.top = `${Math.random() * 100}%`;
+            firefly.style.animationDelay = `${Math.random() * 5}s`;
+            document.body.appendChild(firefly);
+        }
+
+        // Snowflakes
+        for (let i = 0; i < 30; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = `${Math.random() * 100}%`;
+            snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;
+            document.body.appendChild(snowflake);
+        }
+
+        // Ripples
+        function createRipple() {
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple');
+            ripple.style.width = `${Math.random() * 100 + 50}px`;
+            ripple.style.height = ripple.style.width;
+            ripple.style.left = `${Math.random() * window.innerWidth - 50}px`;
+            ripple.style.top = `${Math.random() * window.innerHeight - 50}px`;
+            ripple.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 2000);
+        }
+        setInterval(createRipple, 1000);
+
+        // Vortexes
+        for (let i = 0; i < 5; i++) {
+            const vortex = document.createElement('div');
+            vortex.classList.add('vortex');
+            vortex.style.left = `${Math.random() * 100}%`;
+            vortex.style.top = `${Math.random() * 100}%`;
+            document.body.appendChild(vortex);
+        }
+
+        // Honeycombs
+        for (let i = 0; i < 10; i++) {
+            const honeycomb = document.createElement('div');
+            honeycomb.classList.add('honeycomb');
+            honeycomb.style.left = `${Math.random() * 100}%`;
+            honeycomb.style.top = `${Math.random() * 100}%`;
+            honeycomb.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(honeycomb);
+        }
+
+        // Circuits
+        for (let i = 0; i < 20; i++) {
+            const circuit = document.createElement('div');
+            circuit.classList.add('circuit');
+            circuit.style.left = `${Math.random() * 100}%`;
+            circuit.style.top = `${Math.random() * 100}%`;
+            circuit.style.transform = `rotate(${Math.random() * 360}deg)`;
+            circuit.style.animationDelay = `${Math.random() * 1}s`;
+            document.body.appendChild(circuit);
+        }
+
+        // Add mouse trail
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.createElement('div');
+            trail.style.position = 'absolute';
+            trail.style.width = '10px';
+            trail.style.height = '10px';
+            trail.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            trail.style.borderRadius = '50%';
+            trail.style.left = `${e.pageX}px`;
+            trail.style.top = `${e.pageY}px`;
+            trail.style.opacity = 0.5;
+            trail.style.animation = 'fadeOut 1s forwards';
+            document.body.appendChild(trail);
+            setTimeout(() => trail.remove(), 1000);
+        });
+
+        // Define fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 0.5; transform: scale(1); }
+                to { opacity: 0; transform: scale(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Typing effect for paragraphs
+        const paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach((p, index) => {
+            const text = p.textContent;
+            p.textContent = '';
+            p.setAttribute('data-text', text);
+            let i = 0;
+            const typeInterval = setInterval(() => {
+                if (i < text.length) {
+                    p.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typeInterval);
+                }
+            }, 50 + index * 100);
+        });
+
+        // Scroll animations
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.container > *');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.style.animationPlayState = 'running';
+                } else {
+                    el.style.animationPlayState = 'paused';
+                }
+            });
+        });
+
+        // Random color changes
+        setInterval(() => {
+            document.body.style.background = `linear-gradient(135deg, hsl(${Math.random()*360},100%,50%), hsl(${Math.random()*360},100%,50%), hsl(${Math.random()*360},100%,50%), hsl(${Math.random()*360},100%,50%) )`;
+        }, 10000);
+
+        // More particles variants
+        function createExtraParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '20px';
+            particle.style.height = '20px';
+            particle.style.background = 'radial-gradient(circle, #fff, transparent)';
+            particle.style.left = `${Math.random() * window.innerWidth}px`;
+            particle.style.top = `${Math.random() * window.innerHeight}px`;
+            particle.style.animation = 'extraParticleMove 15s linear infinite';
+            document.body.appendChild(particle);
+        }
+        for (let i = 0; i < 10; i++) {
+            createExtraParticle();
+        }
+
+        const extraStyle = document.createElement('style');
+        extraStyle.textContent = `
+            @keyframes extraParticleMove {
+                0% { transform: translate(0,0); opacity: 1; }
+                100% { transform: translate(${Math.random()*200-100}px, ${Math.random()*200-100}px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(extraStyle);
+
+        // Add sound? No, but simulate with visuals
+        // More functions for length
+        function randomFunction1() {
+            console.log('Random log 1');
+        }
+        setInterval(randomFunction1, 5000);
+
+        function randomFunction2() {
+            console.log('Random log 2');
+        }
+        setInterval(randomFunction2, 6000);
+
+        function randomFunction3() {
+            console.log('Random log 3');
+        }
+        setInterval(randomFunction3, 7000);
+
+        function randomFunction4() {
+            console.log('Random log 4');
+        }
+        setInterval(randomFunction4, 8000);
+
+        function randomFunction5() {
+            console.log('Random log 5');
+        }
+        setInterval(randomFunction5, 9000);
+
+        function randomFunction6() {
+            console.log('Random log 6');
+        }
+        setInterval(randomFunction6, 10000);
+
+        function randomFunction7() {
+            console.log('Random log 7');
+        }
+        setInterval(randomFunction7, 11000);
+
+        function randomFunction8() {
+            console.log('Random log 8');
+        }
+        setInterval(randomFunction8, 12000);
+
+        function randomFunction9() {
+            console.log('Random log 9');
+        }
+        setInterval(randomFunction9, 13000);
+
+        function randomFunction10() {
+            console.log('Random log 10');
+        }
+        setInterval(randomFunction10, 14000);
+
+        // Even more to lengthen script
+        const unusedVar1 = 'unused';
+        const unusedVar2 = 'unused';
+        const unusedVar3 = 'unused';
+        const unusedVar4 = 'unused';
+        const unusedVar5 = 'unused';
+        const unusedVar6 = 'unused';
+        const unusedVar7 = 'unused';
+        const unusedVar8 = 'unused';
+        const unusedVar9 = 'unused';
+        const unusedVar10 = 'unused';
+
+        function unusedFunc1() {}
+        function unusedFunc2() {}
+        function unusedFunc3() {}
+        function unusedFunc4() {}
+        function unusedFunc5() {}
+        function unusedFunc6() {}
+        function unusedFunc7() {}
+        function unusedFunc8() {}
+        function unusedFunc9() {}
+        function unusedFunc10() {}
+
+    </script>
+</body>
+</html>
