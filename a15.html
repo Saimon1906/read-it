@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When Half Failed but Hope Passed - The HSC Story of Sylhet</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #00b4db, #e0f7fa);
+            color: #333;
+            overflow-x: hidden;
+            animation: backgroundGradient 20s ease infinite;
+        }
+
+        @keyframes backgroundGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073; }
+            to { text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6; }
+        }
+
+        /* Parallax Background */
+        .parallax {
+            perspective: 1px;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform-style: preserve-3d;
+        }
+
+        .background-layer {
+            background: url('https://source.unsplash.com/random/1920x1080/?river') no-repeat center center/cover;
+            transform: translateZ(-1px) scale(2);
+            height: 200%;
+            animation: riverFlow 30s linear infinite;
+        }
+
+        @keyframes riverFlow {
+            0% { background-position: 0 0; }
+            100% { background-position: -1920px 0; }
+        }
+
+        /* Content Styles */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 0;
+            position: relative;
+            padding: 20px;
+            border-left: 5px solid #00b4db;
+            background: linear-gradient(to right, #f0f8ff, #ffffff);
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content p:hover {
+            transform: scale(1.05);
+            box-shadow: 4px 4px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Flashy Elements */
+        .flashy-icon {
+            position: absolute;
+            font-size: 3em;
+            color: #ffcc00;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Particle Effects */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Confetti Canvas */
+        #confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Wave Animation */
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTIzNSA1MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+ICA8cGF0aCBmaWxsPSIjMDBiNGRiIiBkPSJNMTE4Ny41LDQ2LjlDMTEyMy4zLDM3LjcsMTA2OS45LDI4LjcsMTAxNi41LDI4LjdjLTUzLjQtMC0xMDYuOCw4Ljk5OS0xNjAuMiwxOC4yYy01My40LDkuMy0xMDYuOCwxOC42LTE2MC4yLDE4LjZjLTUzLjQtMC0xMDYuOC04Ljk5OS0xNjAuMi0xOC4yYy01My40LTkuMy0xMDYuOC0xOC42LTE2MC4yLTE4LjZjLTUzLjQsMC0xMDYuOCw4Ljk5OS0xNjAuMiwxOC4yYy01My40LDkuMy0xMDYuOCwxOC42LTE2MC4yLDE4LjZjLTUzLjQsMC0xMDYuOC04Ljk5OS0xNjAuMiwtMTguMmMtNTMuNC05LjMtMTA2LjgtMTguNi0xNjAuMi0xOC42di01MGgxMjM1VjQ2Ljl6Ii8+PC9zdmc+');
+            animation: waveMove 10s linear infinite;
+        }
+
+        @keyframes waveMove {
+            0% { background-position: 0; }
+            100% { background-position: 1235px; }
+        }
+
+        /* Additional Flashy Styles */
+        .highlight {
+            background: yellow;
+            padding: 5px;
+            border-radius: 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,0,0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255,255,0,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,0,0); }
+        }
+
+        .sparkle {
+            position: relative;
+        }
+
+        .sparkle::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+            opacity: 0;
+            animation: sparkleAnim 2s infinite;
+        }
+
+        @keyframes sparkleAnim {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        /* More Animations */
+        .rotate-icon {
+            display: inline-block;
+            animation: rotate 5s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(45deg, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff, #0000ff, #9900ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 10s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Elements */
+        .float-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Star Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        /* Rainbow Border */
+        .rainbow-border {
+            border: 5px solid;
+            border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+            animation: rainbowBorder 5s linear infinite;
+        }
+
+        @keyframes rainbowBorder {
+            0% { border-image: linear-gradient(0deg, red, orange, yellow, green, blue, indigo, violet) 1; }
+            14% { border-image: linear-gradient(51deg, red, orange, yellow, green, blue, indigo, violet) 1; }
+            28% { border-image: linear-gradient(102deg, red, orange, yellow, green, blue, indigo, violet) 1; }
+            42% { border-image: linear-gradient(153deg, red, orange, yellow, green, blue, indigo, violet) 1; }
+            56% { border-image: linear-gradient(204deg, red, orange, yellow, green, blue, indigo, violet) 1; }
+            70% { border-image: linear-gradient(255deg, red, orange, yellow, green, blue, indigo, violet) 1; }
+            84% { border-image: linear-gradient(306deg, red, orange, yellow, green, blue, indigo, violet) 1; }
+            100% { border-image: linear-gradient(360deg, red, orange, yellow, green, blue, indigo, violet) 1; }
+        }
+
+        /* Neon Effect */
+        .neon {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+        }
+
+        /* More Styles for Length */
+        .extra-style1 {
+            font-style: italic;
+            color: #4a90e2;
+        }
+
+        .extra-style2 {
+            text-decoration: underline wavy #ff0000;
+        }
+
+        .extra-style3 {
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .extra-style4 {
+            word-spacing: 5px;
+            font-weight: bold;
+        }
+
+        .extra-style5 {
+            background-color: rgba(255, 255, 0, 0.3);
+            padding: 10px;
+        }
+
+        .extra-style6 {
+            border-radius: 10px;
+            border: 2px dashed #00ff00;
+        }
+
+        .extra-style7 {
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .extra-style8 {
+            filter: drop-shadow(5px 5px 5px #000);
+        }
+
+        .extra-style9 {
+            mix-blend-mode: multiply;
+        }
+
+        .extra-style10 {
+            opacity: 0.9;
+            transition: opacity 0.5s;
+        }
+
+        .extra-style10:hover {
+            opacity: 1;
+        }
+
+        /* Even More Styles */
+        .super-flashy {
+            animation: multiAnim 10s infinite;
+        }
+
+        @keyframes multiAnim {
+            0% { color: red; transform: scale(1); }
+            20% { color: orange; transform: scale(1.1); }
+            40% { color: yellow; transform: scale(1); }
+            60% { color: green; transform: scale(1.1); }
+            80% { color: blue; transform: scale(1); }
+            100% { color: purple; transform: scale(1.1); }
+        }
+
+        /* Graphics Heavy Elements */
+        .graphic1 {
+            background: url('https://source.unsplash.com/random/800x600/?hope') no-repeat center/cover;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 20px;
+        }
+
+        .graphic2 {
+            background: url('https://source.unsplash.com/random/800x600/?students') no-repeat center/cover;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 20px;
+            filter: brightness(1.2);
+        }
+
+        .graphic3 {
+            background: url('https://source.unsplash.com/random/800x600/?river') no-repeat center/cover;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 20px;
+            animation: zoom 10s infinite;
+        }
+
+        @keyframes zoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .graphic4 {
+            background: url('https://source.unsplash.com/random/800x600/?city') no-repeat center/cover;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 20px;
+        }
+
+        .graphic5 {
+            background: url('https://source.unsplash.com/random/800x600/?education') no-repeat center/cover;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <canvas id="particles"></canvas>
+    <canvas id="confetti"></canvas>
+    <div class="parallax">
+        <div class="parallax-layer background-layer"></div>
+    </div>
+    <header>
+        <h1 class="neon gradient-text">When Half Failed but Hope Passed - The HSC Story of Sylhet</h1>
+        <div class="wave"></div>
+    </header>
+    <section class="content rainbow-border">
+        <div class="graphic1 sparkle"></div>
+        <p class="highlight extra-style1 super-flashy">Last week, the HSC examination results were published, and the news spread across Sylhet faster than a CNG during rush hour. Many students gathered in front of computer shops, nervously refreshing the education board website. When the results appeared, silence filled the streets. Nearly 50% of Sylhet's students had failed.</p>
+        <div class="graphic2 float-element"></div>
+        <p class="extra-style2">For a moment, the city felt heartbroken. Parents sighed, teachers frowned, and some Students quietly deleted their Facebook accounts. But among the disappointment, stories of hope began to rise just like the Surma River after heavy rain.</p>
+        <div class="graphic3"></div>
+        <p class="extra-style3 sparkle">At AIMS English, Najmul Amin Sir, known for his motivational reading sessions, decided to hold a "Special Hope Class." He told his students, "Failure is not the end; it's the best feedback life gives you for free.</p>
+        <div class="graphic4 rotate-icon"></div>
+        <p class="extra-style4">." He reminded them that many successful people once failed too-Albert Einstein, J.K. Rowling, even Sylhet's own entrepreneurs who started with nothing but a dream and a tea stall.</p>
+        <div class="graphic5 extra-style7"></div>
+        <p class="extra-style5">One student, Rafi, had failed in two subjects. He confessed that he felt ashamed to face his family. But during the session, he realized that failure wasn't a certificate of defeat— it was an invitation to grow. He started planning to retake the exam and join the AIMS Reading Club to strengthen his English. His friends joined him, turning their disappointment into determination.</p>
+        <p class="extra-style6">Over the next week, the same Sylhet that once looked gloomy started to buzz with new energy. Banners appeared that read, "Try Again, Sylhet!" Students began studying at cafes, on rooftops, and even under umbrellas during power cuts. The city's rhythm changed-from regret to resilience.</p>
+        <p class="extra-style8">In the end, the HSC result might have broken some hearts, but it also built stronger minds. Because sometimes, when half the students fail, the other half learns how to rise.</p>
+    </section>
+    <footer>
+        <p class="gradient-text">End of Story</p>
+    </footer>
+
+    <script>
+        // Particle System
+        const particleCanvas = document.getElementById('particles');
+        const particleCtx = particleCanvas.getContext('2d');
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * particleCanvas.width;
+                this.y = Math.random() * particleCanvas.height;
+                this.size = Math.random() * 5 + 1;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 3 - 1.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1;
+            }
+            draw() {
+                particleCtx.fillStyle = 'rgba(255,255,255,0.8)';
+                particleCtx.beginPath();
+                particleCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                particleCtx.fill();
+            }
+        }
+
+        let particles = [];
+        function handleParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                if (particles[i].size <= 0.2) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function animateParticles() {
+            particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+            if (particles.length < 100) {
+                particles.push(new Particle());
+            }
+            handleParticles();
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Confetti
+        const confettiCanvas = document.getElementById('confetti');
+        const confettiCtx = confettiCanvas.getContext('2d');
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+
+        class Confetti {
+            constructor() {
+                this.x = Math.random() * confettiCanvas.width;
+                this.y = Math.random() * -confettiCanvas.height;
+                this.size = Math.random() * 10 + 5;
+                this.speed = Math.random() * 5 + 2;
+                this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 10 - 5;
+            }
+            update() {
+                this.y += this.speed;
+                this.rotation += this.rotationSpeed;
+                if (this.y > confettiCanvas.height) {
+                    this.y = -this.size;
+                    this.x = Math.random() * confettiCanvas.width;
+                }
+            }
+            draw() {
+                confettiCtx.save();
+                confettiCtx.translate(this.x, this.y);
+                confettiCtx.rotate(this.rotation * Math.PI / 180);
+                confettiCtx.fillStyle = this.color;
+                confettiCtx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                confettiCtx.restore();
+            }
+        }
+
+        let confettis = [];
+        for (let i = 0; i < 200; i++) {
+            confettis.push(new Confetti());
+        }
+
+        function animateConfetti() {
+            confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+            confettis.forEach(conf => {
+                conf.update();
+                conf.draw();
+            });
+            requestAnimationFrame(animateConfetti);
+        }
+        animateConfetti();
+
+        // Stars
+        const starsContainer = document.querySelector('.stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.width = `${Math.random() * 3}px`;
+            star.style.height = star.style.width;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            starsContainer.appendChild(star);
+        }
+
+        // Resize Handling
+        window.addEventListener('resize', () => {
+            particleCanvas.width = window.innerWidth;
+            particleCanvas.height = window.innerHeight;
+            confettiCanvas.width = window.innerWidth;
+            confettiCanvas.height = window.innerHeight;
+        });
+
+        // Additional JS for Interactivity
+        document.querySelectorAll('.content p').forEach(p => {
+            p.addEventListener('mouseover', () => {
+                p.classList.add('pulse');
+            });
+            p.addEventListener('mouseout', () => {
+                p.classList.remove('pulse');
+            });
+        });
+
+        // Scroll Animation
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            document.querySelectorAll('.float-element').forEach(el => {
+                el.style.transform = `translateY(${scrollPos * 0.5}px)`;
+            });
+        });
+
+        // Random Flashy Icons
+        const icons = ['⭐', '🌟', '💥', '🎉', '🚀'];
+        setInterval(() => {
+            const icon = document.createElement('div');
+            icon.classList.add('flashy-icon');
+            icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+            icon.style.left = `${Math.random() * 100}%`;
+            icon.style.top = `${Math.random() * 100}%`;
+            document.body.appendChild(icon);
+            setTimeout(() => icon.remove(), 2000);
+        }, 1000);
+
+        // More JS Effects
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.style.position = 'absolute';
+            bubble.style.bottom = '0';
+            bubble.style.left = `${Math.random() * 100}%`;
+            bubble.style.width = `${Math.random() * 20 + 10}px`;
+            bubble.style.height = bubble.style.width;
+            bubble.style.background = 'rgba(255,255,255,0.5)';
+            bubble.style.borderRadius = '50%';
+            bubble.style.animation = `rise ${Math.random() * 5 + 5}s linear`;
+            document.body.appendChild(bubble);
+            setTimeout(() => bubble.remove(), 10000);
+        }
+
+        setInterval(createBubble, 500);
+
+        // Keyframe for bubble rise
+        const styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(`
+            @keyframes rise {
+                0% { transform: translateY(0); opacity: 1; }
+                100% { transform: translateY(-${window.innerHeight}px); opacity: 0; }
+            }
+        `, styleSheet.cssRules.length);
+
+        // Firework Effect
+        function firework() {
+            const fw = document.createElement('div');
+            fw.style.position = 'fixed';
+            fw.style.top = `${Math.random() * 50}%`;
+            fw.style.left = `${Math.random() * 100}%`;
+            fw.style.width = '10px';
+            fw.style.height = '10px';
+            fw.style.background = 'yellow';
+            fw.style.borderRadius = '50%';
+            fw.style.animation = 'explode 1s ease-out';
+            document.body.appendChild(fw);
+            setTimeout(() => fw.remove(), 1000);
+        }
+
+        setInterval(firework, 3000);
+
+        styleSheet.insertRule(`
+            @keyframes explode {
+                0% { transform: scale(0); opacity: 1; }
+                100% { transform: scale(20); opacity: 0; }
+            }
+        `, styleSheet.cssRules.length);
+
+        // Color Changing Background
+        const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+        let colorIndex = 0;
+        setInterval(() => {
+            document.body.style.backgroundColor = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }, 5000);
+
+        // Override to keep gradient
+        document.body.style.background = 'linear-gradient(135deg, #1e3c72, #2a5298, #00b4db, #e0f7fa)';
+    </script>
+</body>
+</html>
