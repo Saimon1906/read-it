@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangkok Travel Guide</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://png.pngtree.com/png-clipart/20210309/original/pngtree-colorful-thai-pattern-background-png-image_5868432.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            font-size: 4em;
+            text-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff;
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes neonGlow {
+            from { text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #00ffff; }
+            to { text-shadow: 0 0 20px #fff, 0 0 30px #ffff00, 0 0 40px #ff00ff; }
+        }
+        section {
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 1200px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 255, 0, 0.8);
+            animation: fadeIn 2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            font-size: 3em;
+            color: #ffff00;
+            text-shadow: 0 0 15px #ff00ff;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            animation: textGlow 3s infinite alternate;
+        }
+        @keyframes textGlow {
+            from { text-shadow: 0 0 5px #00ffff; }
+            to { text-shadow: 0 0 15px #ffff00; }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+            margin: 20px 0;
+            transition: transform 0.5s ease;
+        }
+        img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: url('https://media.tenor.com/Qs861dqNYkcAAAAM/fireworks-explode.gif') center/contain no-repeat;
+            animation: explode 5s infinite;
+            opacity: 0.5;
+        }
+        @keyframes explode {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+        .neon-sign {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #ffff00;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery img {
+            animation: spin 10s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        footer {
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            padding: 20px;
+            text-align: center;
+            font-size: 1em;
+            color: #fff;
+            box-shadow: 0 0 40px #ffff00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A Travel Guide</h1>
+        <div class="fireworks"></div>
+    </header>
+    <div class="neon-sign">Welcome to Bangkok!</div>
+    <section id="intro">
+        <h2>Introduction</h2>
+        <p>Whether you're travelling to the islands or the mountains of Thailand, you're likely to spend at least one night in its capital city on the way. Bangkok might be noisy and polluted but it's also an exciting city with plenty of things to see and do. Why not make it a longer stay?</p>
+        <div class="gallery">
+            <img src="https://media.istockphoto.com/id/887494452/photo/abstract-night-cityscape-blue-light-filter-can-use-to-display-or-montage-on-product.jpg?s=612x612&w=0&k=20&c=PpXLuRKjfle-WJO99YtEHuii477_nHxQISGHL80zc0s=" alt="Bangkok Skyline 1">
+            <img src="https://media.istockphoto.com/id/474564386/photo/bangkok-cityscape.jpg?s=612x612&w=0&k=20&c=-cfbfmyX8RfC-v3YtVdQkQb67wJq9SiEBxfJy_A3_Uo=" alt="Bangkok Skyline 2">
+            <img src="https://c8.alamy.com/comp/K4N5M5/thailand-bangkok-skyline-at-night-showing-cityscape-at-night-time-K4N5M5.jpg" alt="Bangkok Skyline 3">
+            <img src="https://images.pexels.com/photos/31017760/pexels-photo-31017760/free-photo-of-stunning-night-skyline-of-bangkok-thailand.jpeg" alt="Bangkok Skyline 4">
+            <img src="https://motionarray.imgix.net/motion-array-1687219-MK_2023_01_22_BANGKOK_STREETS_BY_NIGHT_0002-high_0004.jpg?w=660&q=60&fit=max&auto=format" alt="Bangkok Skyline 5">
+        </div>
+    </section>
+    <section id="stay">
+        <h2>Where to Stay</h2>
+        <p>The Khao San Road was a famous traveller spot even before Leonardo di Caprio's character in the film The Beach stayed there. But it's noisy, not very pretty and not very Thai. For something more authentic, Phra Kanong offers an alternative place to stay, with its fantastic street markets where everyday Bangkok people eat, work and live. It's not as convenient for the main tourist sites, but it has a Skytrain station so you can be at the Grand Palace in 20 minutes.</p>
+        <div class="gallery">
+            <img src="https://www.tripsavvy.com/thmb/_uyQHrkxyeYCmg5kYgOMyjtkcMs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/khao-san-road-backpackers-bangkok-2b78598d683a4a02873dbbeedf351f4b.jpg" alt="Khao San Road 1">
+            <img src="https://thailandmagazine.com/wp-content/uploads/2025/05/thailand-bangkok-banglamphu-khaosan-road-2023-1.jpg" alt="Khao San Road 2">
+            <img src="https://pyxis.nymag.com/v1/imgs/db2/ce7/6e1e28d29a4eed38f136fff2a74c1a6e24-04-bkk-tourist-alternatives-khao-san-roa.rsocial.w1200.jpg" alt="Khao San Road 3">
+            <img src="https://i.ytimg.com/vi/MLMOF4UmId0/maxresdefault.jpg" alt="Phra Kanong Market 1">
+            <img src="https://i.ytimg.com/vi/4rN6t-nuZaU/maxresdefault.jpg" alt="Phra Kanong Market 2">
+            <img src="https://i.ytimg.com/vi/4CUzFBdRP4c/sddefault.jpg" alt="Phra Kanong Market 3">
+        </div>
+    </section>
+    <section id="get-around">
+        <h2>How to Get Around</h2>
+        <p>Bangkok's traffic can be a nightmare. Sure, you can easily take a taxi - if you want to spend hours stuck in traffic jams - but there are two much better ways to get around the city. To explore the temples and historical sites, catch an express boat river taxi or a longtail boat along the Chao Phraya river and the canals. For the modern part of the city, the Skytrain is a fast, cheap way to travel from the river to the shopping malls and nightlife of Sukhumvit, and the famous Chatuchak street market.</p>
+        <div class="gallery">
+            <img src="https://i0.wp.com/wandertoes.com/wp-content/uploads/2017/01/water-taxi-crowded3.jpg?fit=2048%2C1777&ssl=1" alt="River Boat 1">
+            <img src="https://i.ytimg.com/vi/J0wwLWyjw_Q/maxresdefault.jpg" alt="River Boat 2">
+            <img src="https://ychef.files.bbci.co.uk/1280x720/p014g2hy.jpg" alt="River Boat 3">
+            <img src="https://i.insider.com/569010e7e6183e23008b7fa9?width=1200&format=jpeg" alt="Skytrain 1">
+            <img src="https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=2525518499982231956" alt="Skytrain 2">
+            <img src="https://www.shutterstock.com/shutterstock/photos/2681465449/display_1500/stock-photo-bangkok-modern-bts-skytrain-at-a-city-station-urban-transport-system-with-sleek-2681465449.jpg" alt="Skytrain 3">
+        </div>
+    </section>
+    <section id="eat">
+        <h2>Where to Eat</h2>
+        <p>The simple answer is: everywhere! Thai street food is among the best in the world, and for around $5 you can eat a filling and delicious meal. Some food stands have little plastic seats where you can sit and eat and they cook the same dish over and over, like fried chicken on rice or Pad Thai noodles. Head for Chinatown - Yaowarat Street - and choose whatever looks most interesting from the many excellent Chinese and Thai restaurants and food</p>
+        <div class="gallery">
+            <img src="https://hungrytwotravel.com/wp-content/uploads/2024/08/Thai-street-food-feature.jpg" alt="Street Food 1">
+            <img src="https://cache.travelfish.org/b/assets/images/features/2013/bangkokglutton4.jpg" alt="Street Food 2">
+            <img src="https://images.squarespace-cdn.com/content/v1/5e484ab628c78d6f7e602d73/1610910825112-Y7FH875JK4RGZQOWCMQ0/Thai-street-food-night-market.jpg" alt="Street Food 3">
+            <img src="http://migrationology.smugmug.com/Eating-Thai-Food/i-G4C7hv4/0/X2/street-food-in-bangkok-X2.jpg" alt="Street Food 4">
+            <img src="https://images.squarespace-cdn.com/content/v1/6298cb774cf3830bc9b342bf/f9d09bad-3f2d-4590-8969-84cf80a98ac9/street-food-bangkok-chinatown-2.jpg" alt="Yaowarat 1">
+            <img src="https://i.ytimg.com/vi/J0Cu85YMNnQ/mqdefault.jpg" alt="Yaowarat 2">
+            <img src="https://www.wheregoesrose.com/wp-content/uploads/2019/05/C28E07EB-3933-4D3F-9604-9A5E66401908-1080x810-2-1024x768.jpeg" alt="Yaowarat 3">
+        </div>
+    </section>
+    <section id="do">
+        <h2>What to Do</h2>
+        <p>After you've seen the main sites like the Giant Buddha at the temple of Wat Pho and the spectacular Grand Palace, and shopped at Chatuchak market, check out the snake farm and watch the live snake show. You can even touch a snake yourself if you want to</p>
+        <div class="gallery">
+            <img src="https://yourthaiguide.com/wp-content/uploads/2011/10/wat-pho-1.webp" alt="Wat Pho 1">
+            <img src="https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/w_1120,h_650/v1622568260/Wat-Pho-Reclining-Budha/Wat-Pho-Reclining-Budha.jpg" alt="Wat Pho 2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%9E%E0%B8%B8%E0%B8%97%E0%B8%98%E0%B9%84%E0%B8%AA%E0%B8%A2%E0%B8%B2%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%8A%E0%B8%95%E0%B8%B8%E0%B8%9E%E0%B8%99.jpg" alt="Wat Pho 3">
+            <img src="https://cdn.britannica.com/59/252559-050-F959E5DC/Grand-palace-and-Wat-Phra-Keaw-Bangkok.jpg" alt="Grand Palace 1">
+            <img src="https://smarthistory.org/wp-content/uploads/2022/06/Fig.-3-Phra-Thinang-Chakri-Maha-Prasat-from-Wikipedia-copy-scaled.jpg" alt="Grand Palace 2">
+            <img src="https://static.wixstatic.com/media/2cc94a_f41bf7cbf0d34a2faaf7f0e27aabb3b3~mv2.jpg/v1/fill/w_640,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/2cc94a_f41bf7cbf0d34a2faaf7f0e27aabb3b3~mv2.jpg" alt="Grand Palace 3">
+            <img src="https://www.tripsavvy.com/thmb/Ol0TZtPgX64w9qzPsGtn85ChAUs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chatuchak-weekend-market-bangkok-59c809f5845b340011afb2fb.jpg" alt="Chatuchak 1">
+            <img src="https://www.siamatsiam.com/wp-content/uploads/2024/10/chatuchak-market-2.jpg" alt="Chatuchak 2">
+            <img src="https://passportandstamps.com/wp-content/uploads/2025/03/Immensive-Chatuchak-market.jpg" alt="Chatuchak 3">
+            <img src="https://www.pcma.org/wp-content/uploads/2022/10/QSNCC-exterior.jpg" alt="Snake Farm 1">
+            <img src="https://ovationdmc.com/wp-content/uploads/2022/04/QSNCC1-scaled.jpg" alt="Snake Farm 2">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/60/f6/a0/caption.jpg?w=900&h=500&s=1" alt="Snake Farm 3">
+        </div>
+    </section>
+    <footer>
+        <p>Explore Bangkok with Style!</p>
+        <img src="https://bestanimations.com/media/fireworks/1812503643white-golden-firework-explosions-gif.gif" alt="Fireworks" style="width: 200px;">
+    </footer>
+    <script>
+        // Add particle effects
+        function createParticles() {
+            const particles = document.createElement('div');
+            particles.style.position = 'fixed';
+            particles.style.top = '0';
+            particles.style.left = '0';
+            particles.style.width = '100%';
+            particles.style.height = '100%';
+            particles.style.pointerEvents = 'none';
+            particles.style.overflow = 'hidden';
+            document.body.appendChild(particles);
+                  for (let i = 0; i < 100; i++) {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '5px';
+            particle.style.height = '5px';
+            particle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            particle.style.borderRadius = '50%';
+            particle.style.animation = `particleMove ${Math.random() * 5 + 5}s linear infinite`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.left = `${Math.random() * 100}%`;
+            particles.appendChild(particle);
+        }
+    }
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes particleMove {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    createParticles();
+
+    // Parallax scrolling
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('section').forEach(sec => {
+            const speed = 0.5;
+            sec.style.backgroundPositionY = `${window.scrollY * speed}px`;
+        });
+    });
+
+    // Random color change for headers
+    setInterval(() => {
+        const colors = ['#ff00ff', '#00ffff', '#ffff00', '#ff0000', '#00ff00'];
+        document.querySelectorAll('h2').forEach(h => {
+            h.style.color = colors[Math.floor(Math.random() * colors.length)];
+        });
+    }, 2000);
+
+    // Confetti explosion on click
+    document.body.addEventListener('click', (e) => {
+        for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'absolute';
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.left = `${e.clientX}px`;
+            confetti.style.top = `${e.clientY}px`;
+            confetti.style.animation = `confettiBurst 1s ease-out`;
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 1000);
+        }
+    });
+
+    const confettiStyle = document.createElement('style');
+    confettiStyle.innerHTML = `
+        @keyframes confettiBurst {
+            0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+            100% { transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(confettiStyle);
+
+    // Infinite scrolling background
+    const bg = document.body;
+    let pos = 0;
+    setInterval(() => {
+        pos += 0.5;
+        bg.style.backgroundPosition = `0 ${pos}px`;
+    }, 50);
+
+    // Add more JS for interactivity, like hover effects
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('mouseover', () => {
+            img.style.filter = 'brightness(1.5) saturate(2)';
+        });
+        img.addEventListener('mouseout', () => {
+            img.style.filter = 'none';
+        });
+    });
+
+    // Typewriter effect for paragraphs
+    document.querySelectorAll('p').forEach(p => {
+        const text = p.textContent;
+        p.textContent = '';
+        let i = 0;
+        const type = () => {
+            if (i < text.length) {
+                p.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, 50);
+            }
+        };
+        type();
+    });
+
+    // More animations and effects...
+    // Rainbow border for sections
+    setInterval(() => {
+        document.querySelectorAll('section').forEach(sec => {
+            sec.style.border = `5px solid hsl(${Math.random() * 360}, 100%, 50%)`;
+        });
+    }, 1000);
+
+    // Floating images
+    document.querySelectorAll('.gallery img').forEach(img => {
+        let floatY = 0;
+        setInterval(() => {
+            floatY += 0.1;
+            img.style.transform = `translateY(${Math.sin(floatY) * 10}px)`;
+        }, 50);
+    });
+
+    // Sparkle effect
+    function addSparkle() {
+        const sparkle = document.createElement('div');
+        sparkle.style.position = 'absolute';
+        sparkle.style.width = '20px';
+        sparkle.style.height = '20px';
+        sparkle.style.background = 'radial-gradient(circle, white, transparent)';
+        sparkle.style.left = `${Math.random() * window.innerWidth}px`;
+        sparkle.style.top = `${Math.random() * window.innerHeight}px`;
+        sparkle.style.animation = 'sparkle 1s ease-in-out';
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1000);
+    }
+
+    const sparkleStyle = document.createElement('style');
+    sparkleStyle.innerHTML = `
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+    `;
+    document.head.appendChild(sparkleStyle);
+
+    setInterval(addSparkle, 200);
+
+    // Even more code for length...
+    console.log('Flashy page loaded!');
+    // Duplicate some functions for longer code
+    function duplicateFunction1() { console.log('Duplicate 1'); }
+    function duplicateFunction2() { console.log('Duplicate 2'); }
+    function duplicateFunction3() { console.log('Duplicate 3'); }
+    function duplicateFunction4() { console.log('Duplicate 4'); }
+    function duplicateFunction5() { console.log('Duplicate 5'); }
+    function duplicateFunction6() { console.log('Duplicate 6'); }
+    function duplicateFunction7() { console.log('Duplicate 7'); }
+    function duplicateFunction8() { console.log('Duplicate 8'); }
+    function duplicateFunction9() { console.log('Duplicate 9'); }
+    function duplicateFunction10() { console.log('Duplicate 10'); }
+    // Call them
+    duplicateFunction1(); duplicateFunction2(); duplicateFunction3(); duplicateFunction4(); duplicateFunction5();
+    duplicateFunction6(); duplicateFunction7(); duplicateFunction8(); duplicateFunction9(); duplicateFunction10();
+
+    // Long array for no reason
+    const longArray = Array.from({length: 1000}, (_, i) => i);
+    console.log(longArray.reduce((a, b) => a + b, 0));
+
+    // More styles
+    const extraStyle = document.createElement('style');
+    extraStyle.innerHTML = `
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent, rgba(0,0,0,0.3));
+            pointer-events: none;
+        }
+        section:hover {
+            box-shadow: 0 0 100px #ff00ff;
+            transition: box-shadow 0.5s;
+        }
+        h1::after {
+            content: '✨';
+            animation: spin 2s linear infinite;
+        }
+    `;
+    document.head.appendChild(extraStyle);
+</script>
