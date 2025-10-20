@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Showcase</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            perspective: 1000px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+            animation: shine 1.5s ease infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .word {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4757;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease;
+        }
+
+        .definition {
+            font-size: 20px;
+            color: #2f3542;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fffa65;
+            border-radius: 50%;
+            animation: particleMove 5s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes particleMove {
+            0% { transform: translate(0, 0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translate(100vw, 100vh); opacity: 0; }
+        }
+
+        .neon-text {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de;
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de; }
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #ff9f1a;
+            border-radius: 50%;
+            animation: fireworkBurst 2s ease-out infinite;
+        }
+
+        @keyframes fireworkBurst {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            animation: twinkle 1s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .rainbow-border {
+            border: 5px solid transparent;
+            border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
+            animation: rainbowShift 5s linear infinite;
+        }
+
+        @keyframes rainbowShift {
+            0% { border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1; }
+            14% { border-image: linear-gradient(to right, orange, yellow, green, blue, indigo, violet, red) 1; }
+            28% { border-image: linear-gradient(to right, yellow, green, blue, indigo, violet, red, orange) 1; }
+            42% { border-image: linear-gradient(to right, green, blue, indigo, violet, red, orange, yellow) 1; }
+            57% { border-image: linear-gradient(to right, blue, indigo, violet, red, orange, yellow, green) 1; }
+            71% { border-image: linear-gradient(to right, indigo, violet, red, orange, yellow, green, blue) 1; }
+            85% { border-image: linear-gradient(to right, violet, red, orange, yellow, green, blue, indigo) 1; }
+            100% { border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1; }
+        }
+
+        .glow-pulse {
+            animation: glowPulse 2s infinite;
+        }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 5px #fff; }
+            50% { box-shadow: 0 0 20px #fff; }
+            100% { box-shadow: 0 0 5px #fff; }
+        }
+
+        .spin {
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .wave {
+            display: inline-block;
+            animation: wave 2s infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff4757;
+            animation: confettiFall 5s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .laser {
+            position: absolute;
+            width: 2px;
+            height: 100vh;
+            background: #00ff00;
+            animation: laserScan 3s linear infinite;
+        }
+
+        @keyframes laserScan {
+            0% { transform: translateX(-100vw); }
+            100% { transform: translateX(100vw); }
+        }
+
+        .hologram {
+            position: relative;
+            color: #fff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            animation: hologramFlicker 0.1s infinite;
+        }
+
+        @keyframes hologramFlicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .matrix-char {
+            position: absolute;
+            color: #0f0;
+            font-size: 20px;
+            animation: matrixFall linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes matrixFall {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        /* Additional styles for more flashiness */
+        .sparkle {
+            position: relative;
+        }
+
+        .sparkle::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            background: radial-gradient(circle, transparent, rgba(255,255,255,0.5));
+            opacity: 0;
+            animation: sparkleAnim 2s infinite;
+        }
+
+        @keyframes sparkleAnim {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        .vortex {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: conic-gradient(from 0deg, red, orange, yellow, green, blue, indigo, violet, red);
+            border-radius: 50%;
+            animation: vortexSpin 5s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes vortexSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .bubble {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: bubbleRise 10s linear infinite;
+        }
+
+        @keyframes bubbleRise {
+            0% { bottom: -50px; transform: scale(0.5); }
+            100% { bottom: 100vh; transform: scale(1.5); }
+        }
+
+        .firefly {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #ffff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffff00;
+            animation: fireflyMove 5s ease-in-out infinite;
+        }
+
+        @keyframes fireflyMove {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(20px, -20px); }
+            50% { transform: translate(-20px, 20px); }
+            75% { transform: translate(20px, 20px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .aurora {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #00ffcc, #00ff99, #00ff66);
+            opacity: 0.2;
+            animation: auroraShift 20s ease infinite;
+            z-index: -2;
+        }
+
+        @keyframes auroraShift {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-50%); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Even more styles */
+        .prism {
+            position: relative;
+        }
+
+        .prism::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.5) 50%);
+            opacity: 0.5;
+            animation: prismRotate 10s linear infinite;
+        }
+
+        @keyframes prismRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .echo {
+            animation: echoExpand 3s infinite;
+        }
+
+        @keyframes echoExpand {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .pixelate {
+            image-rendering: pixelated;
+        }
+
+        .glitch {
+            animation: glitchAnim 0.5s infinite;
+        }
+
+        @keyframes glitchAnim {
+            0% { transform: translate(0); }
+            20% { transform: translate(-5px, 5px); }
+            40% { transform: translate(5px, -5px); }
+            60% { transform: translate(-5px, 5px); }
+            80% { transform: translate(5px, -5px); }
+            100% { transform: translate(0); }
+        }
+
+        .haze {
+            filter: blur(2px);
+            animation: hazeClear 5s infinite;
+        }
+
+        @keyframes hazeClear {
+            0% { filter: blur(5px); }
+            50% { filter: blur(0); }
+            100% { filter: blur(5px); }
+        }
+
+        /* Background graphics */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 10px, transparent 10px, transparent 20px);
+            z-index: -3;
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-rain"></div>
+    <div class="aurora"></div>
+    <div class="bg-pattern"></div>
+    <div class="container">
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Callous</div>
+            <div class="definition hologram">- she has become callous</div>
+        </div>
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Candid</div>
+            <div class="definition hologram">- he is candid</div>
+        </div>
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Candor</div>
+            <div class="definition hologram">- he speaks with candor</div>
+        </div>
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Capable</div>
+            <div class="definition hologram">- he is capable of doing the job</div>
+        </div>
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Careless</div>
+            <div class="definition hologram">- stop being careless</div>
+        </div>
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Cautious</div>
+            <div class="definition hologram">- be cautious</div>
+        </div>
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Chaos</div>
+            <div class="definition hologram">- my desk is a chaos</div>
+        </div>
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Charitable</div>
+            <div class="definition hologram">- he is a charitable person</div>
+        </div>
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Circumspect</div>
+            <div class="definition hologram">- the spy is circumspect</div>
+        </div>
+        <div class="card rainbow-border glow-pulse">
+            <div class="word neon-text bounce">Clandestine</div>
+            <div class="definition hologram">- they held a clandestine chat</div>
+        </div>
+    </div>
+
+    <script>
+        // Particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 5000);
+        }
+        setInterval(createParticle, 200);
+
+        // Fireworks
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = `${Math.random() * 100}vw`;
+            firework.style.top = `${Math.random() * 100}vh`;
+            firework.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 2000);
+        }
+        setInterval(createFirework, 500);
+
+        // Stars
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(star);
+        }
+
+        // Confetti
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            confetti.style.animationDelay = `${Math.random()}s`;
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 5000);
+        }
+        setInterval(createConfetti, 100);
+
+        // Lasers
+        for (let i = 0; i < 5; i++) {
+            const laser = document.createElement('div');
+            laser.classList.add('laser');
+            laser.style.top = `${Math.random() * 100}vh`;
+            laser.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            laser.style.animationDelay = `${Math.random() * 3}s`;
+            document.body.appendChild(laser);
+        }
+
+        // Matrix rain
+        const matrixRain = document.querySelector('.matrix-rain');
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        function createMatrixColumn() {
+            const column = document.createElement('div');
+            column.classList.add('matrix-char');
+            column.style.left = `${Math.random() * 100}%`;
+            column.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            column.style.animationDelay = `${Math.random() * 5}s`;
+            let text = '';
+            for (let i = 0; i < 20; i++) {
+                text += chars[Math.floor(Math.random() * chars.length)];
+            }
+            column.textContent = text;
+            matrixRain.appendChild(column);
+            setTimeout(() => column.remove(), 15000);
+        }
+        setInterval(createMatrixColumn, 50);
+
+        // Vortexes
+        for (let i = 0; i < 3; i++) {
+            const vortex = document.createElement('div');
+            vortex.classList.add('vortex');
+            vortex.style.left = `${Math.random() * 100}vw`;
+            vortex.style.top = `${Math.random() * 100}vh`;
+            document.body.appendChild(vortex);
+        }
+
+        // Bubbles
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            bubble.style.left = `${Math.random() * 100}vw`;
+            bubble.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            document.body.appendChild(bubble);
+            setTimeout(() => bubble.remove(), 10000);
+        }
+        setInterval(createBubble, 300);
+
+        // Fireflies
+        for (let i = 0; i < 20; i++) {
+            const firefly = document.createElement('div');
+            firefly.classList.add('firefly');
+            firefly.style.left = `${Math.random() * 100}vw`;
+            firefly.style.top = `${Math.random() * 100}vh`;
+            firefly.style.animationDelay = `${Math.random() * 5}s`;
+            document.body.appendChild(firefly);
+        }
+
+        // Add wave to words
+        document.querySelectorAll('.word').forEach(word => {
+            const text = word.textContent;
+            word.innerHTML = '';
+            for (let char of text) {
+                const span = document.createElement('span');
+                span.classList.add('wave');
+                span.textContent = char;
+                span.style.animationDelay = `${Math.random() * 2}s`;
+                word.appendChild(span);
+            }
+        });
+
+        // Glitch effect on hover
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.classList.add('glitch');
+            });
+            card.addEventListener('mouseout', () => {
+                card.classList.remove('glitch');
+            });
+        });
+
+        // Spin on click
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('spin');
+            });
+        });
+
+        // More particles on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.1) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${e.clientX}px`;
+                particle.style.top = `${e.clientY}px`;
+                particle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
+        });
+
+        // Echo effect
+        function createEcho(x, y) {
+            const echo = document.createElement('div');
+            echo.classList.add('echo');
+            echo.style.position = 'absolute';
+            echo.style.left = `${x}px`;
+            echo.style.top = `${y}px`;
+            echo.style.width = '20px';
+            echo.style.height = '20px';
+            echo.style.borderRadius = '50%';
+            echo.style.border = '2px solid #fff';
+            document.body.appendChild(echo);
+            setTimeout(() => echo.remove(), 3000);
+        }
+        setInterval(() => createEcho(Math.random() * window.innerWidth, Math.random() * window.innerHeight), 1000);
+
+        // Prism effect
+        document.querySelectorAll('.definition').forEach(def => {
+            def.classList.add('prism');
+        });
+
+        // Haze on background
+        document.body.classList.add('haze');
+
+        // Additional fireworks on load
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createFirework, i * 200);
+        }
+
+        // Confetti burst on load
+        for (let i = 0; i < 50; i++) {
+            setTimeout(createConfetti, i * 50);
+        }
+
+        // Bubble burst
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createBubble, i * 300);
+        }
+
+        // Random vortex positions update
+        setInterval(() => {
+            document.querySelectorAll('.vortex').forEach(v => {
+                v.style.left = `${Math.random() * 100}vw`;
+                v.style.top = `${Math.random() * 100}vh`;
+            });
+        }, 5000);
+
+        // Firefly movement update
+        setInterval(() => {
+            document.querySelectorAll('.firefly').forEach(f => {
+                f.style.left = `${parseFloat(f.style.left) + (Math.random() - 0.5) * 10}vw`;
+                f.style.top = `${parseFloat(f.style.top) + (Math.random() - 0.5) * 10}vh`;
+            });
+        }, 1000);
+
+        // Add sparkle to cards
+        document.querySelectorAll('.card').forEach(c => {
+            c.classList.add('sparkle');
+        });
+
+        // More matrix columns
+        for (let i = 0; i < 50; i++) {
+            setTimeout(createMatrixColumn, i * 100);
+        }
+
+        // Laser color change
+        setInterval(() => {
+            document.querySelectorAll('.laser').forEach(l => {
+                l.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            });
+        }, 3000);
+
+        // Aurora color shift
+        setInterval(() => {
+            document.querySelector('.aurora').style.background = `linear-gradient(to bottom, transparent, hsl(${Math.random() * 360}, 100%, 50%), hsl(${Math.random() * 360}, 100%, 50%), hsl(${Math.random() * 360}, 100%, 50%))`;
+        }, 10000);
+
+        // Pattern speed change
+        setInterval(() => {
+            document.querySelector('.bg-pattern').style.animationDuration = `${Math.random() * 10 + 10}s`;
+        }, 5000);
+
+        // Add more animations if needed
+    </script>
+</body>
+</html>
