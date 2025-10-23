@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple & Blue Vocab Nexus</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Internal CSS for custom styles, animations, and new color palette -->
+    <style>
+        /* Apply custom fonts */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0514; /* Deep Purple base */
+            color: #e0e0e0;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* --- Custom Cursor --- */
+        .custom-cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #a78bfa; /* Light Purple */
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+        }
+
+        .custom-cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #6f42c1; /* Medium Purple */
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.2s ease-out;
+            box-shadow: 0 0 15px #6f42c1;
+            opacity: 0.5;
+        }
+        
+        body:hover .custom-cursor-outline {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 0.7;
+        }
+
+        /* --- Fullscreen Particle Canvas --- */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Gradient from Persian Blue to Deep Purple */
+            background: radial-gradient(ellipse at bottom, #1c39bb 0%, #0a0514 100%);
+        }
+
+        /* --- Glitch Title Effect --- */
+        .glitch-title {
+            position: relative;
+            color: #fff;
+            font-size: 5rem;
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            /* Main glow in purple */
+            text-shadow:
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 30px #a78bfa,
+                0 0 40px #a78bfa,
+                0 0 50px #a78bfa;
+            animation: flicker 3s infinite linear alternate, glitch-skew 4s infinite linear alternate-reverse;
+        }
+
+        .glitch-title::before,
+        .glitch-title::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+        }
+
+        .glitch-title::before {
+            left: 2px;
+            text-shadow: -2px 0 #3b82f6; /* Persian Blue tint */
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-title::after {
+            left: -2px;
+            text-shadow: -2px 0 #a78bfa; /* Light Purple tint */
+            clip: rect(85px, 450px, 140px, 0);
+            animation: glitch-anim-2 4s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 60px, 0); }
+            10% { clip: rect(35px, 9999px, 70px, 0); }
+            15% { clip: rect(50px, 9999px, 85px, 0); }
+            20% { clip: rect(22px, 9999px, 50px, 0); }
+            25% { clip: rect(65px, 9999px, 100px, 0); }
+            30% { clip: rect(40px, 9999px, 80px, 0); }
+            35% { clip: rect(75px, 9999px, 115px, 0); }
+            40% { clip: rect(20px, 9999px, 60px, 0); }
+            45% { clip: rect(90px, 9999px, 130px, 0); }
+            50% { clip: rect(10px, 9999px, 40px, 0); }
+            55% { clip: rect(80px, 9999px, 120px, 0); }
+            60% { clip: rect(30px, 9999px, 70px, 0); }
+            65% { clip: rect(70px, 9999px, 110px, 0); }
+            70% { clip: rect(45px, 9999px, 85px, 0); }
+            75% { clip: rect(60px, 9999px, 100px, 0); }
+            80% { clip: rect(25px, 9999px, 65px, 0); }
+            85% { clip: rect(55px, 9999px, 95px, 0); }
+            90% { clip: rect(30px, 9999px, 70px, 0); }
+            95% { clip: rect(85px, 9999px, 125px, 0); }
+            100% { clip: rect(90px, 9999px, 98px, 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(65px, 9999px, 110px, 0); }
+            5% { clip: rect(25px, 9999px, 80px, 0); }
+            10% { clip: rect(50px, 9999px, 95px, 0); }
+            15% { clip: rect(70px, 9999px, 120px, 0); }
+            20% { clip: rect(30px, 9999px, 70px, 0); }
+            25% { clip: rect(85px, 9999px, 130px, 0); }
+            30% { clip: rect(45px, 9999px, 90px, 0); }
+            35% { clip: rect(60px, 9999px, 110px, 0); }
+            40% { clip: rect(15px, 9999px, 50px, 0); }
+            45% { clip: rect(75px, 9999px, 125px, 0); }
+            50% { clip: rect(35px, 9999px, 80px, 0); }
+            55% { clip: rect(90px, 9999px, 135px, 0); }
+            60% { clip: rect(20px, 9999px, 60px, 0); }
+            65% { clip: rect(80px, 9999px, 120px, 0); }
+            70% { clip: rect(50px, 9999px, 100px, 0); }
+            75% { clip: rect(70px, 9999px, 115px, 0); }
+            80% { clip: rect(40px, 9999px, 85px, 0); }
+            85% { clip: rect(65px, 9999px, 105px, 0); }
+            90% { clip: rect(25px, 9999px, 75px, 0); }
+            95% { clip: rect(80px, 9999px, 120px, 0); }
+            100% { clip: rect(40px, 9999px, 130px, 0); }
+        }
+        
+        @keyframes glitch-skew {
+          0% { transform: skew(0deg); }
+          50% { transform: skew(1deg, -0.5deg); }
+          100% { transform: skew(0deg); }
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+                text-shadow:
+                    0 0 10px #fff, 0 0 20px #fff,
+                    0 0 30px #a78bfa, 0 0 40px #a78bfa;
+            }
+            20%, 24%, 55% {
+                opacity: 0.8;
+                text-shadow: none;
+            }
+        }
+        
+        .subtitle-animate {
+            animation: fadeIn 2s ease-in 1s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+
+        /* --- Card Styling --- */
+        .word-card-container {
+            transform-style: preserve-3d;
+            perspective: 2000px;
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+            animation: cardFadeIn 0.5s ease-out forwards;
+        }
+        
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .word-card {
+            position: relative;
+            background-color: rgba(42, 15, 69, 0.5); /* Dark Purple tint */
+            backdrop-filter: blur(15px) saturate(200%);
+            -webkit-backdrop-filter: blur(15px) saturate(200%);
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        /* Animated Gradient Border */
+        .word-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            padding: 2px;
+            /* New Purple/Blue gradient */
+            background: conic-gradient(from var(--gradient-angle, 0deg), #3b82f6, #a78bfa, #60a5fa, #3b82f6);
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            animation: rotate-gradient 4s linear infinite;
+        }
+        
+        @property --gradient-angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+
+        @keyframes rotate-gradient {
+            0% { --gradient-angle: 0deg; }
+            100% { --gradient-angle: 360deg; }
+        }
+
+        /* 3D Parallax Content inside card */
+        .card-content {
+            transform: translateZ(20px);
+            transition: transform 0.1s ease-out;
+        }
+        
+        .card-word {
+            color: #d8b4fe; /* Lightest Purple */
+            /* Purple glow */
+            text-shadow: 
+                0 0 8px rgba(216, 180, 254, 0.8),
+                0 0 15px rgba(216, 180, 254, 0.6);
+            transform: translateZ(50px);
+            transition: transform 0.1s ease-out;
+        }
+        
+        .card-sentence {
+            transform: translateZ(30px);
+            transition: transform 0.1s ease-out;
+        }
+        
+        /* --- Mock Audio Visualizer --- */
+        .visualizer-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 50px;
+            gap: 4px;
+            z-index: 100;
+        }
+        
+        .visualizer-bar {
+            width: 6px;
+            /* New Purple/Blue gradient */
+            background: linear-gradient(#a78bfa, #6f42c1, #3b82f6);
+            border-radius: 2px;
+            animation: visualizer-dance 1.5s infinite ease-in-out alternate;
+        }
+        
+        @keyframes visualizer-dance {
+            0% { height: 5px; opacity: 0.5; }
+            100% { height: 50px; opacity: 1; }
+        }
+        
+        /* Stagger bar animations */
+        .visualizer-bar:nth-child(2) { animation-delay: -0.2s; }
+        .visualizer-bar:nth-child(3) { animation-delay: -0.4s; }
+        .visualizer-bar:nth-child(4) { animation-delay: -0.6s; }
+        .visualizer-bar:nth-child(5) { animation-delay: -0.8s; }
+        .visualizer-bar:nth-child(6) { animation-delay: -1s; }
+        .visualizer-bar:nth-child(7) { animation-delay: -1.2s; }
+        .visualizer-bar:nth-child(8) { animation-delay: -1.4s; }
+        .visualizer-bar:nth-child(9) { animation-delay: -1.6s; }
+        .visualizer-bar:nth-child(10) { animation-delay: -1.8s; }
+
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0514; /* Deep purple */
+        }
+        ::-webkit-scrollbar-thumb {
+            /* New Purple/Blue gradient */
+            background: linear-gradient(180deg, #a78bfa, #3b82f6);
+            border-radius: 5px;
+            border: 1px solid #0a0514;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            box-shadow: 0 0 15px #a78bfa; /* Purple glow */
+        }
+    </style>
+</head>
+<body class="min-h-screen w-full">
+
+    <!-- Custom Cursor Elements -->
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-outline"></div>
+
+    <!-- Canvas for particle animation background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Main content container -->
+    <div class="relative w-full flex flex-col items-center justify-center p-4 md:p-12 z-10">
+        
+        <!-- Header Title -->
+        <header class="py-12 md:py-20 text-center relative">
+            <h1 class="glitch-title" data-text="WORD FLUX">
+                Word Flux
+            </h1>
+            <p class="subtitle-animate text-gray-400 mt-6 text-lg md:text-2xl font-light tracking-wider">
+                A Hyper-Dynamic Vocabulary Showcase
+            </p>
+        </header>
+
+        <!-- Grid for Vocabulary Cards -->
+        <main class="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 p-4">
+            
+            <!-- Card 1: Favouritism -->
+            <div class="word-card-container">
+                <div class="word-card rounded-2xl p-6 shadow-2xl">
+                    <div class="card-content">
+                        <h2 class="card-word text-3xl font-semibold">Favouritism</h2>
+                        <p class="card-sentence mt-3 text-gray-300 text-base leading-relaxed">
+                            favouritism is the main curse for our country’s political system.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Feasible -->
+            <div class="word-card-container">
+                <div class="word-card rounded-2xl p-6 shadow-2xl">
+                    <div class="card-content">
+                        <h2 class="card-word text-3xl font-semibold">Feasible</h2>
+                        <p class="card-sentence mt-3 text-gray-300 text-base leading-relaxed">
+                            lets take a feasible step towards renovating our house
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Fertile -->
+            <div class="word-card-container">
+                <div class="word-card rounded-2xl p-6 shadow-2xl">
+                    <div class="card-content">
+                        <h2 class="card-word text-3xl font-semibold">Fertile</h2>
+                        <p class="card-sentence mt-3 text-gray-300 text-base leading-relaxed">
+                            bangladesh has a fertile landscape
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Fickle -->
+            <div class="word-card-container">
+                <div class="word-card rounded-2xl p-6 shadow-2xl">
+                    <div class="card-content">
+                        <h2 class="card-word text-3xl font-semibold">Fickle</h2>
+                        <p class="card-sentence mt-3 text-gray-300 text-base leading-relaxed">
+                            the weather is fickle today
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Fidelity -->
+            <div class="word-card-container">
+                <div class="word-card rounded-2xl p-6 shadow-2xl">
+                    <div class="card-content">
+                        <h2 class="card-word text-3xl font-semibold">Fidelity</h2>
+                        <p class="card-sentence mt-3 text-gray-300 text-base leading-relaxed">
+                            the dogs show fidelity to humans
+                        </T>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Flamboyant -->
+            <div class="word-card-container">
+                <div class="word-card rounded-2xl p-6 shadow-2xl">
+                    <div class="card-content">
+                        <h2 class="card-word text-3xl font-semibold">Flamboyant</h2>
+                        <p class="card-sentence mt-3 text-gray-300 text-base leading-relaxed">
+                            he is a flamboyant person
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 7: Flatter -->
+            <div class="word-card-container">
+                <div class="word-card rounded-2xl p-6 shadow-2xl">
+                    <div class="card-content">
+                        <h2 class="card-word text-3xl font-semibold">Flatter</h2>
+                        <p class="card-sentence mt-3 text-gray-300 text-base leading-relaxed">
+                            you should not flatter people
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 8: Flaunt -->
+            <div class="word-card-container">
+                <div class="word-card rounded-2xl p-6 shadow-2xl">
+                    <div class="card-content">
+                        <h2 class="card-word text-3xl font-semibold">Flaunt</h2>
+                        <p class="card-sentence mt-3 text-gray-300 text-base leading-relaxed">
+                            i flaunt my Ielts result to my entire neighbourhood
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 9: Filler -->
+             <div class="word-card-container">
+                <div class="word-card rounded-2xl p-6 shadow-2xl opacity-70">
+                    <div class="card-content">
+                        <h2 class="card-word text-3xl font-semibold">Nexus</h2>
+                        <p class="card-sentence mt-3 text-gray-300 text-base leading-relaxed">
+                            A connection or series of connections linking two or more things.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        
+        <footer class="py-12 mt-12 text-center text-gray-500 z-10">
+            <p>A hyper-stylized web environment. [Purple/Blue Edition]</p>
+        </footer>
+    </div>
+    
+    <!-- Mock Audio Visualizer -->
+    <div class="visualizer-container">
+        <!-- Create 10 bars for the visualizer -->
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+        <div class="visualizer-bar"></div>
+    </div>
+
+    <!-- Embedded JavaScript for all interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- 1. Custom Cursor ---
+            const cursorDot = document.querySelector('.custom-cursor-dot');
+            const cursorOutline = document.querySelector('.custom-cursor-outline');
+
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
+
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 500, fill: 'forwards', easing: 'ease-out' });
+            });
+            
+            document.querySelectorAll('a, button, .word-card').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                    cursorOutline.style.borderColor = '#3b82f6'; // Persian Blue on hover
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursorOutline.style.borderColor = '#6f42c1'; // Back to Medium Purple
+                });
+            });
+
+            // --- 2. Interactive Particle Background ---
+            const canvas = document.getElementById('particle-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+                let particleCount = 120;
+                const maxDistance = 100;
+                const mouseRadius = 60;
+
+                let mouse = { x: null, y: null };
+
+                window.addEventListener('mousemove', (e) => {
+                    mouse.x = e.clientX;
+                    mouse.y = e.clientY;
+                });
+                window.addEventListener('mouseout', () => {
+                    mouse.x = null;
+                    mouse.y = null;
+                });
+
+                function resizeCanvas() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = document.body.scrollHeight > window.innerHeight ? document.body.scrollHeight : window.innerHeight;
+                    particleCount = Math.floor((canvas.width * canvas.height) / 18000);
+                    if (particleCount > 150) particleCount = 150;
+                    initParticles();
+                }
+
+                class Particle {
+                    constructor(x, y, dx, dy) {
+                        this.x = x;
+                        this.y = y;
+                        this.dx = dx;
+                        this.dy = dy;
+                        this.baseX = this.x;
+                        this.baseY = this.y;
+                        this.radius = Math.random() * 2 + 1;
+                        this.density = (Math.random() * 30) + 1;
+                        // New Purple/Blue color palette for particles
+                        const colors = [
+                            'rgba(167, 139, 250, 0.7)', /* light purple */
+                            'rgba(59, 130, 246, 0.7)',   /* persian blue */
+                            'rgba(96, 165, 250, 0.7)'    /* lighter blue */
+                        ];
+                        this.color = colors[Math.floor(Math.random() * colors.length)];
+                    }
+
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                        ctx.fillStyle = this.color;
+                        ctx.fill();
+                        ctx.closePath();
+                    }
+
+                    update() {
+                        if (this.x + this.radius > canvas.width || this.x - this.radius < 0) this.dx = -this.dx;
+                        if (this.y + this.radius > canvas.height || this.y - this.radius < 0) this.dy = -this.dy;
+                        
+                        if (mouse.x && mouse.y) {
+                            let dxMouse = this.x - mouse.x;
+                            let dyMouse = this.y - mouse.y;
+                            let distance = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                            
+                            if (distance < mouseRadius + this.radius) {
+                                this.x += dxMouse / (distance / 5);
+                                this.y += dyMouse / (distance / 5);
+                            }
+                        }
+
+                        this.x += this.dx;
+                        this.y += this.dy;
+                        this.draw();
+                    }
+                }
+
+                function initParticles() {
+                    particles = [];
+                    for (let i = 0; i < particleCount; i++) {
+                        let x = Math.random() * canvas.width;
+                        let y = Math.random() * canvas.height;
+                        let dx = (Math.random() - 0.5) * 0.5;
+                        let dy = (Math.random() - 0.5) * 0.5;
+                        particles.push(new Particle(x, y, dx, dy));
+                    }
+                }
+
+                function connectParticles() {
+                    for (let i = 0; i < particles.length; i++) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            let dx = particles[i].x - particles[j].x;
+                            let dy = particles[i].y - particles[j].y;
+                            let distance = Math.sqrt(dx * dx + dy * dy);
+
+                            if (distance < maxDistance) {
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                /* Lines are now a faint purple */
+                                ctx.strokeStyle = `rgba(167, 139, 250, ${0.3 - distance / maxDistance})`;
+                                ctx.lineWidth = 0.3;
+                                ctx.stroke();
+                                ctx.closePath();
+                            }
+                        }
+                    }
+                }
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particles.forEach(p => p.update());
+                    connectParticles();
+                }
+                
+                resizeCanvas();
+                animate();
+
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(resizeCanvas, 250);
+                });
+                
+            } else {
+                console.error('Canvas element not found.');
+            }
+
+
+            // --- 3. 3D Parallax Card Effect ---
+            const cards = document.querySelectorAll('.word-card');
+            
+            cards.forEach(card => {
+                const maxTilt = 10;
+                const content = card.querySelector('.card-content');
+                const word = card.querySelector('.card-word');
+                const sentence = card.querySelector('.card-sentence');
+
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const cardWidth = rect.width;
+                    const cardHeight = rect.height;
+                    
+                    const centerX = cardWidth / 2;
+                    const centerY = cardHeight / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -maxTilt;
+                    const rotateY = ((x - centerX) / centerX) * maxTilt;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                    
+                    if (content) content.style.transform = `translateZ(20px) rotateX(${rotateX * 0.2}deg) rotateY(${rotateY * 0.2}deg)`;
+                    if (word) word.style.transform = `translateZ(60px) rotateX(${rotateX * 0.4}deg) rotateY(${rotateY * 0.4}deg)`;
+                    if (sentence) sentence.style.transform = `translateZ(40px) rotateX(${rotateX * 0.3}deg) rotateY(${rotateY * 0.3}deg)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                    if (content) content.style.transform = 'translateZ(20px)';
+                    if (word) word.style.transform = 'translateZ(60px)';
+                    if (sentence) sentence.style.transform = 'translateZ(40px)';
+                });
+            });
+            
+            
+            // --- 4. Staggered Card Entry Animation ---
+            const cardContainers = document.querySelectorAll('.word-card-container');
+            cardContainers.forEach((container, index) => {
+                container.style.animationDelay = `${index * 100}ms`;
+            });
+
+        });
+    </script>
+
+</body>
+</html>
